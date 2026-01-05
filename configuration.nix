@@ -12,22 +12,36 @@
 { config, pkgs, ... }:
 
 #==========================================#
-#                Imports                   #
+#                Switch Desktops           #
 #==========================================#
+let
+  desktop = "kde";
+  desktops = {
+    kde = ./desktops/config-kde.nix;
+    gnome = ./desktops/config-gnome.nix;
+    qtile = ./desktops/config-qtile.nix;
+  };
+in
 {
-  imports = [
-      ./hardware-configuration.nix
-      ./boot/lanzaboote.nix
-      #./desktops/config-gnome.nix
-      ./desktops/config-kde.nix
-      #./desktops/config-qtile.nix
-    ];
-    
-#==========================================#
-#             Enable Flakes                #
-#==========================================#
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  #==========================================#
+  #                Imports                   #
+  #==========================================#
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/secure-boot.nix
+    ./modules/flatpak.nix
+    desktops.${desktop}
+  ];
+
+  #==========================================#
+  #                Flakes                    #
+  #==========================================#
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+    
 #==========================================#
 #              Bootloader                  #
 #==========================================#
@@ -209,30 +223,6 @@ environment.systemPackages = with pkgs; [
 #           Enable Services                #
 #==========================================#
 services.teamviewer.enable = true;     # Teamviewer
-
-#==========================================#
-#               Flatpak                    #
-#==========================================#
-#services.flatpak = {
-#  enable = true;
-
-#  remotes = [
-#    {
-#      name = "flathub";
-#      location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-#    }
-#  ];
-
-#  packages = with pkgs; [
-#    "com.github.tchx84.Flatseal"
-#    "io.github.flattool.Warehouse"
-#  ];
-
-#  update.auto = {
-#    enable = true;
-#    onCalendar = "weekly"; # Update Weekly
-#  };
-#};
 
 #==========================================#
 #           Garbage Collection             #

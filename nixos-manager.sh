@@ -53,26 +53,22 @@ dry_run_rebuild() {
 }
 
 garbage_collect() {
-    echo -e "${NIX_BLUE}\n🧹 Garbage Collection (keep last 5 generations)...${NC}\n"
-    # List all system generations
-    mapfile -t gens < <(nix-env --list-generations -p /nix/var/nix/profiles/system | awk '{print $1}')
+    echo -e "\n${NIX_BLUE}🧹 Garbage Collection (keep last 5 generations)...${NC}\n"
 
-    # If generations are 6 or more, delete older ones
-    if [ ${#gens[@]} -gt 5 ]; then
-        del_count=$((${#gens[@]} - 5))
-        old_gens=("${gens[@]:0:$del_count}")
-        for gen in "${old_gens[@]}"; do
-            nix-env -p /nix/var/nix/profiles/system --delete-generations "$gen"
-        done
-        echo -e "${GREEN}✨ Removed $del_count old generations. Kept last 5.${NC}"
-    else
-        echo -e "${GREEN}✔ Nothing to delete. You already have 5 or fewer generations.${NC}"
-    fi
+    echo -e "${NIX_BLUE}▶ Current system generations:${NC}"
+    nix-env --list-generations -p /nix/var/nix/profiles/system
+    echo
 
-    echo -e "\n${NIX_BLUE}Running nix-collect-garbage...${NC}"
-    nix-collect-garbage --delete-old
+    echo -e "\n${NIX_BLUE}▶ Removing older system generations (keep last 5)...${NC}\n"
+    nix-env -p /nix/var/nix/profiles/system --delete-generations +5 2>/dev/null || true
 
-    echo -e "${GREEN}\n✔ Done!${NC}"
+    echo -e "\n${NIX_BLUE}▶ Removing older user generations (keep last 5)...${NC}\n"
+    nix-env --delete-generations +5 2>/dev/null || true
+
+    echo -e "\n${NIX_BLUE}▶ Running garbage collection (delete unused store paths)...${NC}"
+    nix-collect-garbage -d
+
+    echo -e "\n${GREEN}✔ Cleanup complete. Last 5 generations preserved.${NC}\n"
 }
 
 rollback_nixos() {
@@ -117,52 +113,6 @@ list_generations() {
     nix-env -p /nix/var/nix/profiles/system --list-generations
 }
 
-backup_to_git() {
-    GIT_DIR="/home/fuzzles/git/nixos-flake"
-
-    echo -e "\n${NIX_BLUE}==========  BACKUP /etc/nixos → $GIT_DIR  ==========${NC}\n"
-
-    # Ensure source exists
-    if [ ! -d "$FLAKE_DIR" ]; then
-        echo -e "${YELLOW}⚠️ /etc/nixos not found — aborting.${NC}\n"
-        return
-    fi
-
-    # Ensure Git repo exists
-    if [ ! -d "$GIT_DIR/.git" ]; then
-        echo -e "${YELLOW}⚠️ Git repo not found at $GIT_DIR — initializing...${NC}\n"
-        mkdir -p "$GIT_DIR"
-        git -C "$GIT_DIR" init
-    fi
-
-    # Copy nixos folder content
-    echo -e "${NIX_BLUE}▶ Copying /etc/nixos → $GIT_DIR${NC}\n"
-    rsync -a --delete "$FLAKE_DIR/" "$GIT_DIR/"
-
-    # Commit changes
-    cd "$GIT_DIR" || { echo -e "${YELLOW}⚠️ Cannot cd to $GIT_DIR${NC}\n"; return; }
-    git add .
-    commit_msg="Backup ($HOST): $(date '+%Y-%m-%d %H:%M:%S')"
-
-    if git commit -m "$commit_msg" 2>/dev/null; then
-        echo -e "${GREEN}✔ Committed changes → '${commit_msg}'${NC}\n"
-    else
-        echo -e "${YELLOW}✔ Nothing new to commit — already up to date.${NC}\n"
-    fi
-
-    # Push if remote exists
-    if git remote get-url origin &>/dev/null; then
-        echo -e "${NIX_BLUE}▶ Pushing to remote...${NC}\n"
-        git push origin main 2>/dev/null || git push origin master 2>/dev/null || \
-            echo -e "${YELLOW}⚠️ Push failed — check remote or branch.${NC}\n"
-        echo -e "${GREEN}✔ Backup pushed to remote successfully.${NC}\n"
-    else
-        echo -e "${YELLOW}⚠️ No remote configured — skipped push.${NC}\n"
-    fi
-
-    echo -e "${NIX_BLUE}==========  BACKUP COMPLETE  ==========${NC}\n"
-}
-
 # ─────────────────────────────────────────────────────────────
 # Main Menu Loop
 # ─────────────────────────────────────────────────────────────
@@ -180,10 +130,9 @@ while true; do
     echo "4) Garbage collect old generations"
     echo "5) Rollback to previous or specific generation"
     echo "6) List system generations"
-    echo "7) Backup /etc/nixos to Git"
-    echo "8) Exit"
+    echo "7) Exit"
     echo
-    read -rp "$(echo -e "${YELLOW}Select an option [1-8]: ${NC}")" choice
+    read -rp "$(echo -e "${YELLOW}Select an option [1-7]: ${NC}")" choice
 
     case "$choice" in
         1) update_flake; rebuild_nixos ;;
@@ -192,8 +141,7 @@ while true; do
         4) garbage_collect ;;
         5) rollback_nixos ;;
         6) list_generations ;;
-        7) backup_to_git ;;
-        8)
+        7)
             echo -e "\n${GREEN}✔ Exiting. You can now close!${NC}\n"
             exit 0
             ;;
