@@ -10,11 +10,15 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fresh.url = "github:sinelaw/fresh/v0.1.65";
   };
-
-  outputs = { self, nixpkgs, lanzaboote, nix-flatpak }: {
+  
+  #outputs = { self, nixpkgs, lanzaboote, nix-flatpak }: 
+  outputs = { self, nixpkgs, lanzaboote, nix-flatpak, fresh }: 
+  {
     nixosConfigurations.Layla = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit fresh; };
 
       modules = [
         ./configuration.nix

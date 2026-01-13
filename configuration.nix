@@ -9,20 +9,22 @@
 #sudo nix-collect-garbage --delete-old # Delete All But Current Image
 #sudo nix-env -p /nix/var/nix/profiles/system --list-generations # List Generations
 
-{ config, pkgs, ... }:
+#{ config, pkgs, ... }:
+{ config, pkgs, fresh, ... }:
 
-#==========================================#
-#                Switch Desktops           #
-#==========================================#
-let
-  desktop = "kde";
-  desktops = {
-    kde = ./desktops/config-kde.nix;
-    gnome = ./desktops/config-gnome.nix;
-    qtile = ./desktops/config-qtile.nix;
-  };
-in
-{
+  #==========================================#
+  #              Desktop Switcher            #
+  #==========================================#
+  let
+    desktop = "kde";
+    desktops = {
+      kde = ./desktops/config-kde.nix;
+      gnome = ./desktops/config-gnome.nix;
+      qtile = ./desktops/config-qtile.nix;
+      xfce = ./desktops/config-xfce.nix;
+      };
+  in
+  {
 
   #==========================================#
   #                Imports                   #
@@ -42,12 +44,12 @@ in
     "flakes"
   ];
     
-#==========================================#
-#              Bootloader                  #
-#==========================================#
-#boot.loader.systemd-boot.enable = true;
-boot.loader.efi.canTouchEfiVariables = true;
-boot.supportedFilesystems = [ "ntfs" ];
+  #==========================================#
+  #              Bootloader                  #
+  #==========================================#
+  #boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
 #==========================================#
 #      Automatic Updates & Rebuild         #
@@ -142,10 +144,27 @@ users.users.fuzzles = {
     isNormalUser = true;
     description = "Fuzzles";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #vim
+    packages =
+    (with pkgs; [
+      # Main Applications
+      thunderbird        # Email Client
+      libreoffice        # Office Suite
+      discord            # Discord Client
+      spotify            # Spotify Client
+      vscode             # Code Editor
+      podman             # Container Engine
+      distrobox          # Distro Containers
+      distroshelf        # GUI for Distrobox
+      vlc                # Media & Video Player
+      lutris             # Gaming Platform
+      mangohud           # Overlay
+      mangojuice         # GUI for Mangohud
+    ])
+    ++ [
+      # Flake-based packages
+      fresh.packages.${pkgs.system}.default
     ];
-  };
+};
 
 #==========================================#
 #           Enable Applications            #
@@ -195,20 +214,6 @@ environment.systemPackages = with pkgs; [
 	wget			          # World Wide Web Get
 	neofetch		        # CLI Information Tool
 	ntfs3g		         	# Open Source Driver for NTFS
-
-  # Main Applications
-  thunderbird		      # Email Client
-	libreoffice		      # Office Suite
-	discord			        # Discord Client
-	spotify			        # Spotify Client
-	vscode			        # Code Editor
-	podman			        # Container Engine
-	distrobox		        # Distro Containers
-	distroshelf         # GUI For Distrobox
-	vlc			            # Media & Video Player
-  lutris              # Open Source Gaming Platfrom
-	mangohud		        # Overlay
-	mangojuice		      # GUI For Mangohud
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
