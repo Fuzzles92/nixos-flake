@@ -5,7 +5,7 @@ set -euo pipefail
 # Ensure script is run as root
 # ─────────────────────────────────────────────────────────────
 if [[ "$EUID" -ne 0 ]]; then
-  echo "⚠️  Please run as root: sudo ./nixos-manager.sh"
+  echo "⚠️  Please run as root: sudo ./nixos-helper.sh"
   exit 1
 fi
 
@@ -14,6 +14,7 @@ fi
 # ─────────────────────────────────────────────────────────────
 GREEN="\033[0;32m"
 YELLOW="\033[38;2;255;230;0m"
+LUNA_PURPLE=""
 NIX_BLUE="\033[38;2;0;114;198m"
 NC="\033[0m"
 
@@ -38,7 +39,7 @@ rebuild_nixos() {
     nixos-rebuild switch --flake "$FLAKE_DIR#$HOST" --show-trace
     echo -e "\n${GREEN}✔ Rebuild complete.${NC}"
     echo
-    
+
     read -rp "$(echo -e "${YELLOW}Reboot now? (Y/N): ${NC}")" reboot_choice
     if [[ "$reboot_choice" =~ ^[Yy]$ ]]; then
         echo -e "${GREEN}Rebooting...${NC}"
@@ -52,25 +53,6 @@ dry_run_rebuild() {
     echo -e "\n${GREEN}✔ Dry-run complete. No changes applied.${NC}"
 }
 
-garbage_collect() {
-    echo -e "\n${NIX_BLUE}🧹 Garbage Collection (keep last 5 generations)...${NC}\n"
-
-    echo -e "${NIX_BLUE}▶ Current system generations:${NC}"
-    nix-env --list-generations -p /nix/var/nix/profiles/system
-    echo
-
-    echo -e "\n${NIX_BLUE}▶ Removing older system generations (keep last 5)...${NC}\n"
-    nix-env -p /nix/var/nix/profiles/system --delete-generations +5 2>/dev/null || true
-
-    echo -e "\n${NIX_BLUE}▶ Removing older user generations (keep last 5)...${NC}\n"
-    nix-env --delete-generations +5 2>/dev/null || true
-
-    echo -e "\n${NIX_BLUE}▶ Running garbage collection (delete unused store paths)...${NC}"
-    nix-collect-garbage -d
-
-    echo -e "\n${GREEN}✔ Cleanup complete. Last 5 generations preserved.${NC}\n"
-}
-
 rollback_nixos() {
     echo -e "\n${NIX_BLUE}▶ NixOS Generations:${NC}\n"
     nix-env -p /nix/var/nix/profiles/system --list-generations
@@ -82,7 +64,7 @@ rollback_nixos() {
         echo -e "${NIX_BLUE}\n▶ Rolling back to previous generation...${NC}\n"
         nixos-rebuild switch --rollback
         echo -e "${GREEN}\n✔ Rolled back to previous generation.${NC}\n"
-        
+
         read -rp "$(echo -e "${YELLOW}Reboot now? (Y/N): ${NC}")" reboot_choice
         if [[ "$reboot_choice" =~ ^[Yy]$ ]]; then
             echo -e "${GREEN}Rebooting...${NC}"
@@ -119,29 +101,27 @@ list_generations() {
 while true; do
     clear
     echo -e "${NIX_BLUE}=============================================${NC}"
-    echo -e "${NIX_BLUE}               NixOS Manager                 ${NC}"
+    echo -e "${NIX_BLUE}               NixOS Helper                   ${NC}"
     echo -e "${NIX_BLUE}=============================================${NC}"
     echo
-    echo "System: $HOST"
+    echo "System Name: $HOST"
     echo
     echo "1) Update flake inputs + rebuild"
     echo "2) Rebuild only (no flake update)"
     echo "3) Dry-run rebuild (preview)"
-    echo "4) Garbage collect old generations"
-    echo "5) Rollback to previous or specific generation"
-    echo "6) List system generations"
-    echo "7) Exit"
+    echo "4) Rollback to previous or specific generation"
+    echo "5) List system generations"
+    echo "6) Exit"
     echo
-    read -rp "$(echo -e "${YELLOW}Select an option [1-7]: ${NC}")" choice
+    read -rp "$(echo -e "${YELLOW}Select an option [1-6]: ${NC}")" choice
 
     case "$choice" in
         1) update_flake; rebuild_nixos ;;
         2) rebuild_nixos ;;
         3) dry_run_rebuild ;;
-        4) garbage_collect ;;
-        5) rollback_nixos ;;
-        6) list_generations ;;
-        7)
+        4) rollback_nixos ;;
+        5) list_generations ;;
+        6)
             echo -e "\n${GREEN}✔ Exiting. You can now close!${NC}\n"
             exit 0
             ;;

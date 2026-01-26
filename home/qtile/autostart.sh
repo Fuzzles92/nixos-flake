@@ -13,8 +13,5 @@ copyq &
 flameshot &
 
 # Optional apps
- steam -silent &
- discord --start-minimized &
-# picom & # Animations
-# blueman-applet & # Bluetooth Manager
-
+steam -silent &
+discord --start-minimized &

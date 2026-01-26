@@ -1,5 +1,5 @@
 #==========================================#
-#       My Nix Hardware Configuation       #
+#       ☾ Luna Hardware Configuation
 #==========================================#
 
 { config, lib, pkgs, modulesPath, ... }:
@@ -34,14 +34,14 @@
 #==========================================#
 
   # Linux 250GB SSD
-  fileSystems."/mnt/Linux_250GB_SSD" =
-    { device = "/dev/disk/by-uuid/533ce84b-7642-416c-883e-33d07efb9fae";
-      fsType = "ext4";
-      options = [ 
-	"defaults"
-	"nofail"
-      ];
-    };
+#   fileSystems."/mnt/Linux_250GB_SSD" =
+#     { device = "/dev/disk/by-uuid/533ce84b-7642-416c-883e-33d07efb9fae";
+#       fsType = "ext4";
+#       options = [
+# 	"defaults"
+# 	"nofail"
+#       ];
+#     };
 
   swapDevices = [ ];
 

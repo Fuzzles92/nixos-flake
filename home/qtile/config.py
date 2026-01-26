@@ -1,10 +1,13 @@
 #==========================================#
-#         Python imports                   #
+#        Qtile Configuation
 #==========================================#
+
+#--------------------------
+#  Python imports
+#--------------------------
 import os
 import subprocess
 import sys
-sys.path.append("/etc/nixos/desktops/qtile")  # Path to your whole folder
 import colors
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
@@ -12,30 +15,17 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import hook
 
-#==========================================#
-#         Required Software                #
-#==========================================#
-# ttf-font-awesome
-# rofi
-# pavucontrol
-# alsa-utils
-# picom
-# blueman (Bluetooth)
-# flameshot #Screenshot
-# copyq #Clipboard
-# pamixer
-
-#==========================================#
-#         Start Up Applications            #
-#==========================================#
+#--------------------------
+#  Start Up Applications
+#--------------------------
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('/etc/nixos/desktops/qtile/autostart.sh')
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call(home)
 
-#==========================================#
-#          Software Variables              #
-#==========================================#
+#--------------------------
+#  Software Variables
+#--------------------------
 mod = "mod4"           # Super/Windows Key
 myTerm = "alacritty"    # My terminal of choice
 myBrowser = "firefox"  # My browser of choice
@@ -44,9 +34,9 @@ myEmail = "thunderbird" # Email Client
 myMusic = "spotify" # Music
 myAppLauncher = "rofi -show drun -show-icons" # App Launcher
 
-#==========================================#
-#                  Keys                    #
-#==========================================#
+#--------------------------
+#  Keys
+#--------------------------
 keys = [
     # Essentials
     Key([mod], "return", lazy.spawn(myTerm), desc="Terminal"),
@@ -115,9 +105,9 @@ for vt in range(1, 8):
         )
     )
 
-#==========================================#
-#             Group Settings               #
-#==========================================#
+#--------------------------
+#  Group Settings
+#--------------------------
 groups = []
 
 group_names = ["1", "2", "3", "4"]
@@ -157,9 +147,9 @@ for i in groups:
         ]
     )
 
-#==========================================#
-#          Scratchpad Settings             #
-#==========================================#
+#--------------------------
+#  Scratchpad Settings
+#--------------------------
 groups.append(
      ScratchPad("scratchpad", [
          DropDown("term", myTerm, width=0.8, height=0.6, x=0.1, y=0.1, opacity=1),
@@ -174,25 +164,20 @@ keys.extend([
     Key([mod], "f3", lazy.group["scratchpad"].dropdown_toggle("music"), desc="Toggle music scratchpad"),
 ])
 
-#==========================================#
-#             Colour & Themeing            #
-#==========================================#
-#colors = colors.DoomOne
-#colors = colors.MonokaiPro
-colors = colors.Nord
-#colors = colors.OceanicNext
-#colors = colors.Palenight
-#colors = colors.TomorrowNight
+#--------------------------
+#  Colour & Themeing
+#--------------------------
+colors = colors.Luna
 
 layout_theme = {"border_width": 4,
                 "margin": 5,
-                "border_focus": colors[8],
+                "border_focus": colors[7],
                 "border_normal": colors[0]
                 }
 
-#==========================================#
-#                Layouts                   #
-#==========================================#
+#--------------------------
+#  Layouts
+#--------------------------
 layouts = [
     layout.Columns(**layout_theme),
     layout.MonadTall(**layout_theme),
@@ -224,7 +209,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = '/etc/nixos/desktops/qtile/wallpaper/nord.png',
+        wallpaper = '/etc/nixos/assets/wallpapers/luna-os-abstract.png',
         wallpaper_mode = 'fill',
 
         top=bar.Bar(
@@ -467,3 +452,16 @@ wl_xcursor_theme = None
 wl_xcursor_size = 24
 
 wmname = "LG3D"
+
+#--------------------------
+#  Required Software
+#--------------------------
+# ttf-font-awesome
+# rofi
+# pavucontrol
+# alsa-utils
+# picom
+# blueman (Bluetooth)
+# flameshot #Screenshot
+# copyq #Clipboard
+# pamixer

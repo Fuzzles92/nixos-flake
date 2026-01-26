@@ -1,5 +1,5 @@
 #==========================================#
-#         Flatpak Management               #
+#         Flatpak Config
 #==========================================#
 
 { pkgs, ... }:
@@ -19,9 +19,7 @@
 
   # Declarative Flatpak apps
   services.flatpak.packages = [
-    "com.github.tchx84.Flatseal"     # 
-    "io.github.flattool.Warehouse"   # 
-    "org.gimp.GIMP"                  # GIMP image editor
+    "com.github.tchx84.Flatseal"     # Manage Flatpak permissions
   ];
 
   # Enable automatic Flatpak updates
