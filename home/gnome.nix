@@ -15,6 +15,8 @@
     ignition
     pika-backup
     impression
+    dconf-editor
+    # Spotify # Not working currently using flatpak
 
     # GNOME Extensions
     gnomeExtensions.appindicator
@@ -22,6 +24,8 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.caffeine
     gnomeExtensions.gsconnect
+    gnomeExtensions.edit-desktop-files
+    gnomeExtensions.simple-tiling
   ];
 
   #--------------------------
@@ -38,6 +42,7 @@
             "dash-to-dock@micxgx.gmail.com"
             "caffeine@patapon.info"
             "gsconnect@andyholmes.github.io"
+            "editdesktopfiles@dannflower"
       ];
     };
     
@@ -60,8 +65,8 @@
   # Background / Wallpaper
   # --------------------------
   "org/gnome/desktop/background" = {
-    picture-uri = "file:///etc/nixos/assets/wallpapers/luna-os-abstract.png";
-    picture-uri-dark = "file:///etc/nixos/assets/wallpapers/luna-os-abstract.png";
+    picture-uri = "file:///etc/nixos/assets/wallpapers/purple-abstract.png";
+    picture-uri-dark = "file:///etc/nixos/assets/wallpapers/purple-abstract.png";
     picture-options = "zoom";
     primary-color = "#000000";
     secondary-color = "#000000";
@@ -74,6 +79,7 @@
     "org/gnome/shell/extensions/dash-to-dock" = {
       dock-position = "BOTTOM";
       dash-max-icon-size = 32;
+      custom-theme-shrink = true;
     };
   };
 

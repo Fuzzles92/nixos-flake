@@ -1,5 +1,5 @@
 #==========================================#
-#         XFCE Dekstop
+#         XFCE Desktop
 #==========================================#
 
 { config, pkgs, ... }:
@@ -21,8 +21,8 @@
   #  Auto Login
   #--------------------------
   services.displayManager = {
-              autoLogin.enable = true;
-              autoLogin.user = "fuzzles";
+          autoLogin.enable = true;
+          autoLogin.user = "fuzzles";
 };
 
   services.displayManager.defaultSession = "xfce";

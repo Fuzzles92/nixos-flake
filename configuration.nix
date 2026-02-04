@@ -1,14 +1,14 @@
 #==========================================#
-#             Luna Configuation
+#             NixOS Configuation
 #==========================================#
 
 { config, pkgs, ... }:
 
 {
 
-  #==========================================#
+  #--------------------------
   #  Imports
-  #==========================================#
+  #--------------------------
   imports =
     [ ./hardware-configuration.nix
       ./modules
@@ -16,32 +16,35 @@
     ];
 
 
-  #==========================================#
-  #                Flakes                    #
-  #==========================================#
+  #--------------------------
+  #  Fakes
+  #--------------------------
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  #==========================================#
-  #              Bootloader                  #
-  #==========================================#
+
+  #--------------------------
+  #  Bootloader
+  #--------------------------
   #boot.loader.grub.enable = true;
   #boot.loader.grub.device = "/dev/sda";
   #boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  #==========================================#
-  #              Plymonth                    #
-  #==========================================#
+
+  #--------------------------
+  #  Plymonth
+  #--------------------------
   boot.plymouth.enable = true;
 
   #==========================================#
   #           System Information             #
   #==========================================#
-  networking.hostName = "luna";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
 

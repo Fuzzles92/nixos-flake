@@ -1,5 +1,5 @@
 #==========================================#
-#       ☾ Luna Hardware Configuation
+#       Hardware Configuation
 #==========================================#
 
 { config, lib, pkgs, modulesPath, ... }:

@@ -20,6 +20,7 @@
   # Declarative Flatpak apps
   services.flatpak.packages = [
     "com.github.tchx84.Flatseal"     # Manage Flatpak permissions
+    "com.spotify.Client"             # Spotify
   ];
 
   # Enable automatic Flatpak updates

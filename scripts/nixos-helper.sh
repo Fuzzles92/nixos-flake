@@ -33,7 +33,7 @@ useful_commands() {
     echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
     echo -e "\n${NIX_BLUE}Test Build a Version - ${NC} nix build github:sinelaw/fresh/v0.1.65\n"
     echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
-    echo ""
+    echo -e "\n${NIX_BLUE}Build Flake - ${NC} sudo nixos-rebuild switch --flake '/etc/nixos#nixos'\n"
     echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
     echo ""
     echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
@@ -155,7 +155,7 @@ while true; do
     echo "7) Cleanup Generations"
     echo "8) Exit"
     echo
-    read -rp "$(echo -e "${YELLOW}Select an option [1-7]: ${NC}")" choice
+    read -rp "$(echo -e "${YELLOW}Select an option [1-8]: ${NC}")" choice
 
     case "$choice" in
         1) update_flake; rebuild_nixos ;;

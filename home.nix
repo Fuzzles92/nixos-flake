@@ -13,7 +13,6 @@
     ./home/nixos-helper.nix
     ./home/mangohud.nix
     #./home/gnome.nix
-    #./home/xfce.nix
     #./home/qtile.nix
   ];
 
@@ -30,7 +29,7 @@
       thunderbird        # Email Client
       libreoffice        # Office Suite
       discord            # Discord Client
-      spotify            # Spotify Client
+      #spotify            # Spotify Client
       vlc                # Media & Video Player
 
   ];

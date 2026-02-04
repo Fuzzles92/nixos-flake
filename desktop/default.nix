@@ -4,9 +4,10 @@
 
 {
   imports = [
-    ./kde.nix
     #./gnome.nix
+    ./kde.nix
     #./xfce.nix
     #./qtile.nix
+    #./cosmic.nix
   ];
 }

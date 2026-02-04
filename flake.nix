@@ -1,9 +1,9 @@
 #==========================================#
-#             ☾  Luna Flake
+#             Flake
 #==========================================#
 
 {
-  description = "Luna";
+  description = "My Flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -21,7 +21,7 @@
 
   outputs = { self, nixpkgs, nix-flatpak, home-manager, lanzaboote, fresh }:
   {
-    nixosConfigurations.luna = nixpkgs.lib.nixosSystem
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem
     {
       system = "x86_64-linux";
       specialArgs = { inherit fresh; };
