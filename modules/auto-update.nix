@@ -1,5 +1,5 @@
 #==========================================#
-#        Flake Update
+#        Flake Auto Upgrade
 #==========================================#
 
 { config, pkgs, ... }:
@@ -8,20 +8,16 @@
   system.autoUpgrade = {
     enable = true;
 
-    # Use flakes
-    flake = "/etc/nixos";
+    # Pull from your git repo (recommended)
+    flake = "https://github.com/Fuzzles92/nixos_config";
 
-    # Pull latest inputs + rebuild
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "--commit-lock-file"
-    ];
+    # Run daily at 03:00
+    dates = "daily";
 
     # Don’t reboot automatically
     allowReboot = false;
 
-    # Run weekly (safe cadence)
-    dates = "Sun 03:00";
+    # Optional but recommended
+    persistent = true;
   };
 }

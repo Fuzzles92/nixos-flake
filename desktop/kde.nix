@@ -30,7 +30,7 @@
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
 	# Excludes
   	  elisa  			    # Music player
-	  discover		        # Software Centre
+	  #discover		        # Software Centre
 	  khelpcenter           # KDE Help Centre
 	];
 

@@ -13,10 +13,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-  
+
 #==========================================#
 #           OS File Systems                #
-#==========================================#  
+#==========================================#
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/470c4e8a-39e5-4b22-844d-deaeeb731f89";
@@ -28,20 +28,20 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-    
+
 #==========================================#
 #          Additional File Systems         #
 #==========================================#
 
-  # Linux 250GB SSD
-#   fileSystems."/mnt/Linux_250GB_SSD" =
-#     { device = "/dev/disk/by-uuid/533ce84b-7642-416c-883e-33d07efb9fae";
-#       fsType = "ext4";
-#       options = [
-# 	"defaults"
-# 	"nofail"
-#       ];
-#     };
+  # Linux 1TB SSD
+  fileSystems."/mnt/1TB_SSD" =
+    { device = "/dev/disk/by-uuid/aa1bf740-89c9-4f37-b709-0cab9e4c51ec";
+      fsType = "ext4";
+      options = [
+	  "nofail"
+      "noatime"
+      ];
+    };
 
   swapDevices = [ ];
 

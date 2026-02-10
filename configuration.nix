@@ -37,6 +37,13 @@
 
 
   #--------------------------
+  #  Systemd
+  #--------------------------
+  systemd.tmpfiles.rules = [
+  "d /mnt/1TB_SSD 0755 fuzzles users -"
+];
+
+  #--------------------------
   #  Plymonth
   #--------------------------
   boot.plymouth.enable = true;
