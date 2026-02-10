@@ -24,8 +24,12 @@
   ];
 
   # Enable automatic Flatpak updates
-  services.flatpak.update.auto = {
+  services.flatpak.update = {
+  auto = {
     enable = true;
-    onCalendar = "weekly";
+    onCalendar = "daily";
   };
+  cleanup.enable = true;
+  };
+
 }
