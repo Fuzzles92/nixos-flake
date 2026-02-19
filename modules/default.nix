@@ -8,6 +8,6 @@
     ./gaming.nix
     ./printing.nix
     ./secure-boot.nix
-    ./auto-update.nix
+    #./auto-update.nix
   ];
 }

@@ -5,7 +5,10 @@
 { pkgs, ... }:
 
 {
-  # Enable nix-flatpak service
+   #--------------------------
+  # Enable Flatpak
+  #--------------------------
+
   services.flatpak.enable = true;
 
   # Add common remotes
@@ -16,20 +19,18 @@
     }
   ];
 
-
   # Declarative Flatpak apps
   services.flatpak.packages = [
     "com.github.tchx84.Flatseal"     # Manage Flatpak permissions
     "com.spotify.Client"             # Spotify
   ];
 
-  # Enable automatic Flatpak updates
-  services.flatpak.update = {
-  auto = {
-    enable = true;
-    onCalendar = "daily";
+  #--------------------------
+  # Automatic Flatpak Updates
+  #--------------------------
+  services.flatpak.update.onActivation = true;
+  services.flatpak.update.auto = {
+  enable = true;
+  onCalendar = "weekly"; # Default value
   };
-  cleanup.enable = true;
-  };
-
 }

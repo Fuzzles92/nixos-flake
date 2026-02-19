@@ -8,16 +8,18 @@
   system.autoUpgrade = {
     enable = true;
 
-    # Pull from your git repo (recommended)
-    flake = "https://github.com/Fuzzles92/nixos_config";
+    # Use your flake source
+    #flake = "github:Fuzzles92/nixos_config";
+    flake = "/etc/nixos";
 
-    # Run daily at 03:00
-    dates = "daily";
 
-    # Don’t reboot automatically
+    # Run every day at 03:00
+    dates = "03:00";
+
+    # Do NOT reboot automatically
     allowReboot = false;
 
-    # Optional but recommended
+    # If machine was off at 03:00, run at next boot
     persistent = true;
   };
 }
