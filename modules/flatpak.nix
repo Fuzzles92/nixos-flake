@@ -5,7 +5,7 @@
 { pkgs, ... }:
 
 {
-   #--------------------------
+  #--------------------------
   # Enable Flatpak
   #--------------------------
 
@@ -31,6 +31,6 @@
   services.flatpak.update.onActivation = true;
   services.flatpak.update.auto = {
   enable = true;
-  onCalendar = "weekly"; # Default value
+  onCalendar = "weekly";
   };
 }

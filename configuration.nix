@@ -48,9 +48,9 @@
   #--------------------------
   boot.plymouth.enable = true;
 
-  #==========================================#
-  #           System Information             #
-  #==========================================#
+  #--------------------------
+  #  System Information
+  #--------------------------
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
@@ -79,9 +79,9 @@
   # Configure console keymap
   console.keyMap = "uk";
 
-  #==========================================#
-  #           Sound (Pipewire)               #
-  #==========================================#
+  #--------------------------
+  #  Sound (Pipewire)
+  #--------------------------
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -125,6 +125,8 @@
   	dates = "weekly";
   	options = "--delete-older-than 10d";
   };
+
+  nix.optimise.automatic = true;
 
   #==========================================#
   #           Enable Unfree Packages         #

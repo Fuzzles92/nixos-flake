@@ -17,7 +17,7 @@
   ];
 
   #--------------------------
-  # Enable Applications
+  # Git
   #--------------------------
 
   programs.git = {
@@ -29,11 +29,17 @@
     };
   };
 
+  #--------------------------
+  # Virt-Manager
+  #--------------------------
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
   users.groups.libvirtd.members = [ "fuzzles" ];
 
+  #--------------------------
+  # Podman
+  #--------------------------
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
@@ -41,7 +47,7 @@
   };
 
   #--------------------------
-  # Enable Services
+  # Teamviewer
   #--------------------------
-  services.teamviewer.enable = true;     # Teamviewer
+  services.teamviewer.enable = true;
 }

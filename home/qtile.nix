@@ -9,9 +9,9 @@
   # Qtile Packages
   #--------------------------
   home.packages = with pkgs; [
-    python3
-    python3Packages.qtile
-    xorg.xprop   # optional, useful for Qtile utils
+    #python3
+    #python3Packages.qtile
+    #xorg.xprop   # optional, useful for Qtile utils
   ];
 
   #--------------------------

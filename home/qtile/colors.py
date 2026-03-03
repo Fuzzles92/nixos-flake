@@ -23,16 +23,3 @@ Nord = [
     ["#88C0D0", "#88C0D0"], # color[8]
     ["#7d7d7d", "#7d7d7d"]  # color[9]
     ]
-
-Luna = [
-    ["#0f111a", "#0f111a"], # color[0]
-    ["#dcd7e0", "#dcd7e0"], # color[1]
-    ["#1a1c27", "#1a1c27"], # color[2]
-    ["#e06c75", "#e06c75"], # color[3]
-    ["#98c379", "#98c379"], # color[4]
-    ["#e5c07b", "#e5c07b"], # color[5]
-    ["#7aa2f7", "#7aa2f7"], # color[6]
-    ["#bb9af7", "#bb9af7"], # color[7]
-    ["#7dcfff", "#7dcfff"], # color[8]
-    ["#5c6370", "#5c6370"]  # color[9]
-    ]

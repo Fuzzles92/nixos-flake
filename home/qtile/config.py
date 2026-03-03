@@ -167,7 +167,7 @@ keys.extend([
 #--------------------------
 #  Colour & Themeing
 #--------------------------
-colors = colors.Luna
+colors = colors.Nord
 
 layout_theme = {"border_width": 4,
                 "margin": 5,
@@ -209,7 +209,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = '/etc/nixos/assets/wallpapers/luna-os-abstract.png',
+        wallpaper = '/etc/nixos/assets/wallpapers/space.jpg',
         wallpaper_mode = 'fill',
 
         top=bar.Bar(

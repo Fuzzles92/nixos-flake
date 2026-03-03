@@ -24,16 +24,6 @@
   #--------------------------
   services.desktopManager.cosmic.enable = true;
 
-  #--------------------------
-  #  DG Desktop Portals (Flatpak)
-  #--------------------------
-  #xdg.portal.enable = true;
-  #xdg.portal.extraPortals = with pkgs; [
-        #xdg-desktop-portal-gtk   # GTK backend
-        #xdg-desktop-portal-xapp  # XFCE/MATE backend (optional)
-        #];
-  #xdg.portal.config.common.default = "*"; # pick first available portal
-  
   
   #--------------------------
   #  System Packages Exclude
@@ -49,7 +39,6 @@
           # Applications
            pika-backup
            impression
-           # Spotify # Not working currently using flatpak
-
+          # move to home manager at somepoint
 	];
 }

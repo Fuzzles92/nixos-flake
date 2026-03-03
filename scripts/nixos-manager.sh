@@ -5,7 +5,7 @@ set -euo pipefail
 # Ensure script is run as root
 # ─────────────────────────────────────────────────────────────
 if [[ "$EUID" -ne 0 ]]; then
-  echo "⚠️  Please run as root: sudo ./nixos-helper.sh"
+  echo "⚠️  Please run as root: sudo ./nixos-manager.sh"
   exit 1
 fi
 
@@ -29,14 +29,9 @@ HOST="${HOSTNAME:-$(hostname)}"
 # ─────────────────────────────────────────────────────────────
 
 useful_commands() {
-    echo -e "\n${NIX_BLUE}▶ Useful Commands${NC}\n"
-    echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
-    echo -e "\n${NIX_BLUE}Test Build a Version - ${NC} nix build github:sinelaw/fresh/v0.1.65\n"
-    echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
-    echo -e "\n${NIX_BLUE}Build Flake - ${NC} sudo nixos-rebuild switch --flake '/etc/nixos#nixos'\n"
-    echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
-    echo ""
-    echo -e "\n${NIX_BLUE}# ─────────────────────────────────────────────────────────────${NC}\n"
+    echo -e "\n${NIX_BLUE}▶ Useful Commands${NC}"
+    echo -e "\n${NIX_BLUE}Test Build a Version - ${NC} nix build github:sinelaw/fresh/v0.1.65"
+    echo -e "\n${NIX_BLUE}Build Flake - ${NC} sudo nixos-rebuild switch --flake '/etc/nixos#nixos'"
 }
 
 cleanup_generations() {
@@ -141,10 +136,10 @@ list_generations() {
 while true; do
     clear
     echo -e "${NIX_BLUE}=============================================${NC}"
-    echo -e "${NIX_BLUE}               NixOS Helper                   ${NC}"
+    echo -e "${NIX_BLUE}               NixOS Manager                 ${NC}"
     echo -e "${NIX_BLUE}=============================================${NC}"
     echo
-    echo "System Name: $HOST"
+    echo -e "System Name: ${NIX_BLUE}$HOST${NC} "
     echo
     echo "1) Update flake inputs + rebuild"
     echo "2) Rebuild only (no flake update)"
