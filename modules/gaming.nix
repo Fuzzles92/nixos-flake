@@ -26,6 +26,7 @@
   # Gaming Utilities
   #--------------------------
   environment.systemPackages = with pkgs; [
+    input-remapper
     mangohud
     mangojuice
     gamemode
