@@ -3,8 +3,6 @@
 #================================#
 
 # multi user
-# improve git setup with token
-# auto backup git on update
 # strartup apps the nix way
 # niri??
 # qtile??
