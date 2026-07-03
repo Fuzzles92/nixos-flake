@@ -12,14 +12,6 @@
   services.displayManager.cosmic-greeter.enable = true;
 
   #--------------------------
-  #  Auto Login
-  #--------------------------
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "fuzzles";
-  };
-
-  #--------------------------
   #  Cosmic Desktop
   #--------------------------
   services.desktopManager.cosmic.enable = true;
@@ -43,8 +35,8 @@
   #  System Packages
   #--------------------------
   environment.systemPackages = with pkgs; [
-    # Comsic System Packages
-    pika-backup        # Backup GUI Tool
-    impression         # ISO Image Writer
+    # Managed By Home Manager
+    #pika-backup        # Backup GUI Tool
+    #impression         # ISO Image Writer
     ];
 }

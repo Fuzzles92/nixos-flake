@@ -10,7 +10,8 @@
   #  Imports
   #--------------------------
   imports = [
-    ./gnome.nix       # GNOME Home Manager
+    #./gnome.nix       # GNOME Home Manager
+    ./cosmic.nix       # COSMIC Home Manager
   ];
 
   #--------------------------

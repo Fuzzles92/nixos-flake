@@ -2,6 +2,8 @@
 #        My NixOS Config
 #================================#
 
+# comsic
+# kde
 # multi user
 # strartup apps the nix way
 # niri??
@@ -52,7 +54,7 @@
   #================================#
   #     Plymonth (Splash Screen)
   #================================#
-  #boot.plymouth.enable = true;
+  boot.plymouth.enable = true;
 
   #================================#
   #     System Information
@@ -135,8 +137,8 @@
   #================================#
   nix.gc = {
   	automatic = true;
-  	dates = "daily";
-  	options = "--delete-older-than 2d";
+  	dates = "weekly";
+  	options = "--delete-older-than 10d";
   };
   
   #================================#

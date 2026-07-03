@@ -30,8 +30,6 @@
     gnomeExtensions.caffeine
     gnomeExtensions.gsconnect
     gnomeExtensions.edit-desktop-files
-    gnomeExtensions.all-in-one-clipboard
-    gnomeExtensions.tiling-shell
   ];
 
   #--------------------------
@@ -49,7 +47,6 @@
           dash-to-dock.extensionUuid
           edit-desktop-files.extensionUuid
           gsconnect.extensionUuid
-          all-in-one-clipboard.extensionUuid
         ];        
       };
       
