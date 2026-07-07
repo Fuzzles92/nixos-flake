@@ -20,14 +20,14 @@
   #  System Packages Exclude
   #--------------------------
   environment.cosmic.excludePackages = with pkgs; [
-    cosmic-store        # Cosmic Store
+    cosmic-store        # COSMIC Store
     #--------------------------
     #  Included COSMIC Packages
     #--------------------------
-    #cosmic-files      # file manager
-    #cosmic-edit       # text editor
-    #cosmic-player     # media player
-    #cosmic-term       # terminal
+    #cosmic-files      # COSMIC File Manager
+    #cosmic-edit       # COSMIC Text Editor
+    #cosmic-player     # COSMIC Media Player
+    #cosmic-term       # COSMIC Terminal
     
   ];
   

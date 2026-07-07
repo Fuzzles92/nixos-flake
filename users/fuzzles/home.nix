@@ -11,7 +11,8 @@
   #--------------------------
   imports = [
     #./gnome.nix       # GNOME Home Manager
-    ./cosmic.nix       # COSMIC Home Manager
+    #./cosmic.nix      # COSMIC Home Manager
+    ./kde.nix          # KDE Home Manager
   ];
 
   #--------------------------
@@ -44,7 +45,7 @@
      spotify            # Music Streaming
      just               # Just Command Runner
      fzf                # General-purpose command-line fuzzy finder
-     xdg-utils          # CLI Tool Integrate with Desktop Env
+     #xdg-utils          # CLI Tool Integrate with Desktop Env
   ];
   
   #--------------------------
@@ -56,18 +57,14 @@
     text = ''
       #!/usr/bin/env bash
       
-      if command -v kgx >/dev/null 2>&1; then
-        exec kgx -- "$@"
-      elif command -v xdg-terminal-exec >/dev/null 2>&1; then
-        exec xdg-terminal-exec "$@"
-      elif command -v kitty >/dev/null 2>&1; then
-        exec kitty -e "$@"
+      if command -v gnome-terminal >/dev/null 2>&1; then
+        exec gnome-terminal -- "$@"
       elif command -v konsole >/dev/null 2>&1; then
         exec konsole -e "$@"
-      elif command -v gnome-terminal >/dev/null 2>&1; then
-        exec gnome-terminal -- "$@"
+      elif command -v cosmic-term >/dev/null 2>&1; then
+        exec cosmic-term -e "$@"
       else
-        echo "No terminal emulator found"
+        echo "No Terminal Emulator Found"
         exit 1
       fi
     '';
