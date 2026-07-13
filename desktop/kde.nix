@@ -16,8 +16,6 @@
 
   services.displayManager = {
               sddm.enable = true;
-              autoLogin.enable = true;
-              autoLogin.user = "fuzzles";
 };
 
   services.displayManager.sddm.wayland.enable = true;
@@ -38,6 +36,7 @@
   # System Packages
   #--------------------------
   environment.systemPackages = with pkgs; [
-    # Managed By Home Manager
+    # Mostly Managed By Home Manager (User)
+    kdePackages.partitionmanager		# KDE Partition Manager
 	];
 }
