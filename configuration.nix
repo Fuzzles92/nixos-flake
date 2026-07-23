@@ -2,8 +2,6 @@
 #        My NixOS Config
 #================================#
 
-# comsic
-# kde
 # multi user
 # strartup apps the nix way
 # niri??

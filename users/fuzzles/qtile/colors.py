@@ -1,0 +1,12 @@
+Nord = [
+    ["#2E3440", "#2E3440"], # color[0]
+    ["#D8DEE9", "#D8DEE9"], # color[1]
+    ["#3B4252", "#3B4252"], # color[2]
+    ["#BF616A", "#BF616A"], # color[3]
+    ["#A3BE8C", "#A3BE8C"], # color[4]
+    ["#EBCB8B", "#EBCB8B"], # color[5]
+    ["#81A1C1", "#81A1C1"], # color[6]
+    ["#B48EAD", "#B48EAD"], # color[7]
+    ["#88C0D0", "#88C0D0"], # color[8]
+    ["#7d7d7d", "#7d7d7d"]  # color[9]
+    ]

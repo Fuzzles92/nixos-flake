@@ -38,5 +38,6 @@
   environment.systemPackages = with pkgs; [
     # Mostly Managed By Home Manager (User)
     kdePackages.partitionmanager		# KDE Partition Manager
+    kdePackages.kcalc                   # KDE Calculator
 	];
 }
