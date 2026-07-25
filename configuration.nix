@@ -2,11 +2,6 @@
 #        My NixOS Config
 #================================#
 
-# multi user
-# strartup apps the nix way
-# niri??
-# qtile??
-
 { config, pkgs, ... }:
 
 {

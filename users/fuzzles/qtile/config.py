@@ -209,7 +209,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = '/etc/nixos/assets/wallpapers/space.jpg',
+        wallpaper = '/etc/nixos/users/fuzzles/assets/wallpapers/nord.jpeg',
         wallpaper_mode = 'fill',
 
         top=bar.Bar(
@@ -219,19 +219,19 @@ screens = [
                         fontsize=14,
                         foreground = colors[1]
                 ),
-                # widget.TextBox(
-                #         text="",
-                #         mouse_callbacks={"Button1": lazy.spawn(myAppLauncher)},
-                #         fontsize = 12,
-                #         padding = 8,
-                #         ),
-                # widget.TextBox(
-                #         text = '|',
-                #         font = "Ubuntu Mono",
-                #         foreground = colors[9],
-                #         padding = 2,
-                #         fontsize = 14
-                #         ),
+                 widget.TextBox(
+                         text="",
+                         mouse_callbacks={"Button1": lazy.spawn(myAppLauncher)},
+                         fontsize = 12,
+                         padding = 8,
+                         ),
+                 widget.TextBox(
+                         text = '|',
+                         font = "Ubuntu Mono",
+                         foreground = colors[9],
+                         padding = 2,
+                         fontsize = 14
+                         ),
                 widget.GroupBox(
                         fontsize = 11,
                         margin_y = 5,
@@ -249,39 +249,39 @@ screens = [
                         other_current_screen_border = colors[7],
                         other_screen_border = colors[4],
                         ),
-                # widget.TextBox(
-                #         text = '|',
-                #         font = "Ubuntu Mono",
-                #         foreground = colors[9],
-                #         padding = 2,
-                #         fontsize = 14
-                #         ),
-                # widget.TextBox(
-                #         text="🦊",
-                #         mouse_callbacks={"Button1": lazy.spawn(myBrowser)},
-                #         fontsize = 12,
-                #         padding = 8,
-                #         foreground = colors[3],
-                #         ),
-                # widget.TextBox(
-                #         text="✉️",
-                #         mouse_callbacks={"Button1": lazy.spawn(myEmail)},
-                #         fontsize = 12,
-                #         padding = 8,
-                #         foreground = colors[3],
-                #         ),
-                # widget.TextBox(
-                #         text="📁",
-                #         mouse_callbacks={"Button1": lazy.spawn(myFileManager)},
-                #         fontsize = 12,
-                #         padding = 8,
-                #         foreground = colors[3],
-                #         ),
-                # widget.TextBox(
-                #         text="🎧",
-                #         mouse_callbacks={"Button1": lazy.spawn(myMusic)},
-                #         padding=5
-                #         ),
+                 widget.TextBox(
+                         text = '|',
+                         font = "Ubuntu Mono",
+                         foreground = colors[9],
+                         padding = 2,
+                         fontsize = 14
+                         ),
+                 widget.TextBox(
+                         text="🦊",
+                         mouse_callbacks={"Button1": lazy.spawn(myBrowser)},
+                         fontsize = 12,
+                         padding = 8,
+                         foreground = colors[3],
+                         ),
+                 widget.TextBox(
+                         text="✉️",
+                         mouse_callbacks={"Button1": lazy.spawn(myEmail)},
+                         fontsize = 12,
+                         padding = 8,
+                         foreground = colors[3],
+                         ),
+                 widget.TextBox(
+                         text="📁",
+                         mouse_callbacks={"Button1": lazy.spawn(myFileManager)},
+                         fontsize = 12,
+                         padding = 8,
+                         foreground = colors[3],
+                         ),
+                 widget.TextBox(
+                         text="🎧",
+                         mouse_callbacks={"Button1": lazy.spawn(myMusic)},
+                         padding=5
+                         ),
                 widget.TextBox(
                         text = '|',
                         font = "Ubuntu Mono",
@@ -290,14 +290,12 @@ screens = [
                         fontsize = 14
                         ),
                 widget.CurrentLayout(
-                        padding = 5,
+                        padding=5,
                         scale=0.7,
+                        mode='both',
+                        icon_first=False,
                         foreground = colors[1],
                             ),
-                # widget.CurrentLayoutIcon(
-                #         foreground = colors[1],
-                #         padding = 5,
-                #         ),
                 widget.TextBox(
                         text = '|',
                         font = "Ubuntu Mono",
@@ -330,13 +328,6 @@ screens = [
                     mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn('blueman-manager')},
                     ),
-                # widget.GenPollText(
-                #         update_interval = 300,
-                #         func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-                #         foreground = colors[3],
-                #         padding = 8,
-                #         fmt = '❤  {}',
-                #         ),
                 widget.CPU(
                         foreground = colors[4],
                         padding = 8,
@@ -356,7 +347,7 @@ screens = [
                         padding = 8,
                         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('notify-disk')},
                         partition = '/',
-                        format = '{uf}{m} free',
+                        format = '{uf:.0f}{m} free',
                         fmt = '🖴  Disk: {}',
                         visible_on_warn = False,
                         ),
@@ -371,7 +362,7 @@ screens = [
                         padding = 8,
                         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('notify-date')},
                         ## Uncomment for date and time
-                        format = "⧗  %a, %b %d - %H:%M",
+                        format = "⧗ %a, %b %d - %H:%M",
                         ## Uncomment for time only
                         #format = "⧗  %I:%M %p",
                         ),
@@ -382,9 +373,9 @@ screens = [
                         padding = 2,
                         fontsize = 14
                         ),
-                # widget.StatusNotifier(
-                #     padding = 6
-                #     ),
+                 widget.StatusNotifier(
+                     padding = 6
+                     ),
                 widget.Systray(
                    padding = 6
                    ),

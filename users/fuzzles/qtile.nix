@@ -2,6 +2,12 @@
 #       Qtile Home Manager
 #==========================================
 
+# screenshotting
+# clipboard
+# polkit prompt
+# fix disc format on qtile bar
+
+
 { config, pkgs, ... }:
 
 {
