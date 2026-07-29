@@ -71,7 +71,7 @@
     '';
   };
   
-  #--------------------------
+ #--------------------------
   #  NixOS Manager Just Wrapper
   #--------------------------
   home.file.".local/bin/nixos-manager" = {
@@ -91,14 +91,8 @@
             --color always \
             "$@"
        fi
-
-       echo
-       echo "Command finished. Press Enter to close or continue using the shell."
-       read -r
-
-       exec "$SHELL"
      '';
-  };
+  };   
   
   #--------------------------
   #  NixOS Manager
