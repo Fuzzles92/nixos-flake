@@ -91,8 +91,14 @@
             --color always \
             "$@"
        fi
+
+       echo
+       echo "Command finished. Press Enter to close or continue using the shell."
+       read -r
+
+       exec "$SHELL"
      '';
-  };   
+  };
   
   #--------------------------
   #  NixOS Manager
