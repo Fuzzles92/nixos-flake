@@ -249,39 +249,39 @@ screens = [
                         other_current_screen_border = colors[7],
                         other_screen_border = colors[4],
                         ),
-                 widget.TextBox(
-                         text = '|',
-                         font = "Ubuntu Mono",
-                         foreground = colors[9],
-                         padding = 2,
-                         fontsize = 14
-                         ),
-                 widget.TextBox(
-                         text="🦊",
-                         mouse_callbacks={"Button1": lazy.spawn(myBrowser)},
-                         fontsize = 12,
-                         padding = 8,
-                         foreground = colors[3],
-                         ),
-                 widget.TextBox(
-                         text="✉️",
-                         mouse_callbacks={"Button1": lazy.spawn(myEmail)},
-                         fontsize = 12,
-                         padding = 8,
-                         foreground = colors[3],
-                         ),
-                 widget.TextBox(
-                         text="📁",
-                         mouse_callbacks={"Button1": lazy.spawn(myFileManager)},
-                         fontsize = 12,
-                         padding = 8,
-                         foreground = colors[3],
-                         ),
-                 widget.TextBox(
-                         text="🎧",
-                         mouse_callbacks={"Button1": lazy.spawn(myMusic)},
-                         padding=5
-                         ),
+                 #widget.TextBox(
+                        # text = '|',
+                        # font = "Ubuntu Mono",
+                        # foreground = colors[9],
+                        # padding = 2,
+                        # fontsize = 14
+                        # ),
+                 #widget.TextBox(
+                        # text="🦊",
+                        # mouse_callbacks={"Button1": lazy.spawn(myBrowser)},
+                        # fontsize = 12,
+                        # padding = 8,
+                        # foreground = colors[3],
+                        # ),
+                # widget.TextBox(
+                        # text="✉️",
+                        # mouse_callbacks={"Button1": lazy.spawn(myEmail)},
+                        # fontsize = 12,
+                        # padding = 8,
+                        # foreground = colors[3],
+                        # ),
+                 #widget.TextBox(
+                        # text="📁",
+                        # mouse_callbacks={"Button1": lazy.spawn(myFileManager)},
+                        # fontsize = 12,
+                        # padding = 8,
+                        # foreground = colors[3],
+                        # ),
+                # widget.TextBox(
+                        # text="🎧",
+                        # mouse_callbacks={"Button1": lazy.spawn(myMusic)},
+                        # padding=5
+                        # ),
                 widget.TextBox(
                         text = '|',
                         font = "Ubuntu Mono",
@@ -321,13 +321,13 @@ screens = [
                                             #},
                             #),
                 widget.Bluetooth(
-                    foreground = colors[3],
-                    padding = 8,
-                    default_text=' {connected_devices}',
-                    default_show_battery='True',
-                    mouse_callbacks={
-                    'Button1': lambda: qtile.cmd_spawn('blueman-manager')},
-                    ),
+                        foreground = colors[3],
+                        padding = 8,
+                        default_text=' {connected_devices}',
+                        default_show_battery='True',
+                        mouse_callbacks={
+                            'Button1': lambda: qtile.cmd_spawn('blueman-manager')},
+                        ),
                 widget.CPU(
                         foreground = colors[4],
                         padding = 8,
@@ -352,19 +352,16 @@ screens = [
                         visible_on_warn = False,
                         ),
                 widget.Volume(
-                        foreground = colors[7],
-                        padding = 8,
-                        fmt = '🕫  Vol: {}',
+                        foreground=colors[7],
+                        padding=8,
+                        fmt='🕫  Vol: {}',
                         mouse_callbacks={"Button1": lazy.spawn("pavucontrol")},
                         ),
                 widget.Clock(
-                        foreground = colors[8],
-                        padding = 8,
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('notify-date')},
-                        ## Uncomment for date and time
+                        foreground=colors[8],
+                        padding=8,
+                        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('notify-date')},
                         format = "⧗ %a, %b %d - %H:%M",
-                        ## Uncomment for time only
-                        #format = "⧗  %I:%M %p",
                         ),
                 widget.TextBox(
                         text = '|',
@@ -395,7 +392,7 @@ screens = [
                     ),
                 widget.Spacer(length = 4),
             ],
-            22,
+            size=30,
         ),
     ),
 ]

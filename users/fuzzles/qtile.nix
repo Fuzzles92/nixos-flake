@@ -2,12 +2,6 @@
 #       Qtile Home Manager
 #==========================================
 
-# screenshotting
-# clipboard
-# polkit prompt
-# fix disc format on qtile bar
-
-
 { config, pkgs, ... }:
 
 {
@@ -22,9 +16,9 @@
   #--------------------------
   # Qtile Configuration
   #--------------------------
-  xdg.configFile."qtile" = {
-    source = ./qtile;
-    recursive = true;
-    force = true;
-  };
+#   xdg.configFile."qtile" = {
+#     source = ./qtile;
+#     recursive = true;
+#     force = true;
+#   };
 }

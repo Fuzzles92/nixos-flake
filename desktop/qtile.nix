@@ -17,10 +17,11 @@
   #--------------------------
   services.xserver.enable = true;
   services.xserver.windowManager.qtile = {
-  		enable = true;
-  		extraPackages = python3Packages: with python3Packages; [
-    		qtile-extras
-    		];
+        enable = true;
+       extraPackages = python3Packages: with python3Packages; 
+            [
+              qtile-extras
+            ];
   };
 
   #--------------------------
@@ -34,20 +35,32 @@
   xdg.portal.config.common.default = "*"; # pick first available portal
   
   #--------------------------
+  #  Polkit
+  #--------------------------
+  security.polkit.enable = true;
+    
+  #--------------------------
   #  System Packages
   #--------------------------
   environment.systemPackages = with pkgs; [
-          rofi						# Application Launcher
-          kdePackages.dolphin       # File Manager GUI
-          alacritty					# Terminal
-          networkmanagerapplet		# Network Manager Applet
-          pavucontrol				# GUI PulseAudio
-          alsa-utils				# Utils for Advanced Linux Sound Architecture
-          pamixer					# Pulseaudio Command Line Mixer
-          blueman 					# Bluetooth
-          flameshot 				# Screenshot Application
-          copyq 					# Clipboard
-	];
+          lxqt.lxqt-policykit       # LXQT Polkit Agent
+          thunar                    # XFCE Thunar File Manager
+          thunar-volman             # XFCE Thunar USB & Removeable Media
+          tumbler                   # XFCE Thunar Image/Video Thumbnail Support
+          gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
+          mousepad                  # XFCE Text Editor
+          ristretto                 # XFCE Image Viewer
+          rofi                      # Application Launcher
+          #kdePackages.dolphin       # File Manager GUI
+          alacritty                 # Terminal
+          networkmanagerapplet      # Network Manager Applet
+          pavucontrol               # GUI PulseAudio
+          alsa-utils                # Utils for Advanced Linux Sound Architecture
+          pamixer                   # Pulseaudio Command Line Mixer
+          blueman                   # Bluetooth
+          flameshot                 # Screenshot Application
+          copyq                     # Clipboard
+  ];
 
   #--------------------------
   #  Hardware
@@ -57,8 +70,12 @@
   #--------------------------
   #  Fonts
   #--------------------------
-  fonts.packages = with pkgs; [
-  font-awesome
-  ];
+  fonts.packages =
+    (with pkgs; [
+      font-awesome
+    ])
+    ++ builtins.filter
+      pkgs.lib.attrsets.isDerivation
+      (builtins.attrValues pkgs.nerd-fonts);
 
 }
