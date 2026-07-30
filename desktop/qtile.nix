@@ -52,6 +52,7 @@
           ristretto                 # XFCE Image Viewer
           rofi                      # Application Launcher
           #kdePackages.dolphin       # File Manager GUI
+          kitty
           alacritty                 # Terminal
           networkmanagerapplet      # Network Manager Applet
           pavucontrol               # GUI PulseAudio
