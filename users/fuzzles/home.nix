@@ -52,29 +52,29 @@
   #--------------------------
   #  Generic Terminal Launcher
   #--------------------------
-  home.file.".local/bin/run-terminal" = {
-    executable = true;
-
-    text = ''
-      #!/usr/bin/env bash
-      
-      if command -v gnome-terminal >/dev/null 2>&1; then
-        exec gnome-terminal -- "$@"
-      elif command -v konsole >/dev/null 2>&1; then
-        exec konsole -e "$@"
-      elif command -v cosmic-term >/dev/null 2>&1; then
-        exec cosmic-term -e "$@"
-      else
-        echo "No Terminal Emulator Found"
-        exit 1
-      fi
-    '';
-  };
+#   home.file.".local/bin/run-terminal" = {
+#     executable = true;
+#
+#     text = ''
+#       #!/usr/bin/env bash
+#
+#       if command -v gnome-terminal >/dev/null 2>&1; then
+#         exec gnome-terminal -- "$@"
+#       elif command -v konsole >/dev/null 2>&1; then
+#         exec konsole -e "$@"
+#       elif command -v cosmic-term >/dev/null 2>&1; then
+#         exec cosmic-term -e "$@"
+#       else
+#         echo "No Terminal Emulator Found"
+#         exit 1
+#       fi
+#     '';
+#   };
   
- #--------------------------
+  #--------------------------
   #  NixOS Manager Just Wrapper
   #--------------------------
-  home.file.".local/bin/nixos-manager" = {
+  home.file.".local/bin/nixjust" = {
     executable = true;
 
     text = ''
@@ -92,28 +92,29 @@
             "$@"
        fi
      '';
-  };   
-  
+  };
+
   #--------------------------
   #  NixOS Manager
   #--------------------------
   
   # Icon
-  home.file.".local/share/icons/hicolor/scalable/apps/nixos-snowflake.svg".source =
-    ./assets/icons/nixos-snowflake.svg;
-    
-  home.file.".local/share/applications/nixos-manager.desktop".text = ''
-    [Desktop Entry]
-    Type=Application
-    Name=NixOS Manager
-    GenericName=NixOS Manager
-    Comment=Manage NixOS with Just
-    Exec=${config.home.homeDirectory}/.local/bin/run-terminal ${config.home.homeDirectory}/.local/bin/nixos-manager
-    Icon=nixos-snowflake
-    Terminal=false
-    StartupNotify=false
-    Categories=System;Utility;
-    Keywords=nixos;manager;just;
-    '';
+#   home.file.".local/share/icons/hicolor/scalable/apps/nixos-snowflake.svg".source =
+#     ./assets/icons/nixos-snowflake.svg;
+#
+#   home.file.".local/share/applications/nixos-manager.desktop".text = ''
+#     [Desktop Entry]
+#     Type=Application
+#     Name=NixOS Manager
+#     GenericName=NixOS Manager
+#     Comment=Manage NixOS with Just
+#     Exec=${config.home.homeDirectory}/.local/bin/run-terminal ${config.home.homeDirectory}/.local/bin/nixos-manager
+#     Icon=nixos-snowflake
+#     Terminal=false
+#     StartupNotify=false
+#     Categories=System;Utility;
+#     Keywords=nixos;manager;just;
+#     '';
+#
 
 }

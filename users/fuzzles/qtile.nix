@@ -14,6 +14,20 @@
   ];
 
   #--------------------------
+  #  Programs
+  #--------------------------
+  programs.rofi = {
+          enable = true;
+          package = pkgs.rofi; #pkgs.rofi-wayland
+          theme = ./rofi/catppuccin/catppuccin-mocha.rasi;
+
+          extraConfig = {
+              show-icons = true;
+              modi = "drun,run,window";
+          };
+  };
+
+  #--------------------------
   # Qtile Configuration
   #--------------------------
 #   xdg.configFile."qtile" = {

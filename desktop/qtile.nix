@@ -50,7 +50,7 @@
           gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
           mousepad                  # XFCE Text Editor
           ristretto                 # XFCE Image Viewer
-          rofi                      # Application Launcher
+          #rofi                      # Application Launcher
           #kdePackages.dolphin       # File Manager GUI
           kitty
           alacritty                 # Terminal
