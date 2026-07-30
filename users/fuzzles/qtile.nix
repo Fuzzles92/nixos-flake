@@ -19,7 +19,7 @@
   programs.rofi = {
           enable = true;
           package = pkgs.rofi; #pkgs.rofi-wayland
-          theme = ./rofi/catppuccin/catppuccin-mocha.rasi;
+          theme = ./rofi/catppuccin/catppuccin-default.rasi;
 
           extraConfig = {
               show-icons = true;
