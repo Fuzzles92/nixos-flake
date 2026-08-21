@@ -9,7 +9,7 @@
   #--------------------------
   #  Display Manager (LightDM)
   #--------------------------
-  #services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
 
   #--------------------------
@@ -43,24 +43,21 @@
   #  System Packages
   #--------------------------
   environment.systemPackages = with pkgs; [
-          lxqt.lxqt-policykit       # LXQT Polkit Agent
-          thunar                    # XFCE Thunar File Manager
-          thunar-volman             # XFCE Thunar USB & Removeable Media
-          tumbler                   # XFCE Thunar Image/Video Thumbnail Support
-          gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
-          mousepad                  # XFCE Text Editor
-          ristretto                 # XFCE Image Viewer
-          #rofi                      # Application Launcher
-          #kdePackages.dolphin       # File Manager GUI
-          kitty
-          alacritty                 # Terminal
-          networkmanagerapplet      # Network Manager Applet
-          pavucontrol               # GUI PulseAudio
-          alsa-utils                # Utils for Advanced Linux Sound Architecture
-          pamixer                   # Pulseaudio Command Line Mixer
-          blueman                   # Bluetooth
-          flameshot                 # Screenshot Application
-          copyq                     # Clipboard
+#           lxqt.lxqt-policykit       # LXQT Polkit Agent
+#           thunar                    # XFCE Thunar File Manager
+#           thunar-volman             # XFCE Thunar USB & Removeable Media
+#           tumbler                   # XFCE Thunar Image/Video Thumbnail Support
+#           gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
+#           mousepad                  # XFCE Text Editor
+#           ristretto                 # XFCE Image Viewer
+#           alacritty                 # Terminal
+#           networkmanagerapplet      # Network Manager Applet
+#           pavucontrol               # GUI PulseAudio
+#           alsa-utils                # Utils for Advanced Linux Sound Architecture
+#           pamixer                   # Pulseaudio Command Line Mixer
+#           blueman                   # Bluetooth
+#           flameshot                 # Screenshot Application
+#           copyq                     # Clipboard
   ];
 
   #--------------------------

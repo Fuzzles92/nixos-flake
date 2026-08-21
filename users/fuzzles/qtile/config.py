@@ -15,6 +15,9 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import hook
 
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
+
 #--------------------------
 #  Start Up Applications
 #--------------------------
@@ -29,7 +32,7 @@ def autostart():
 mod = "mod4"           # Super/Windows Key
 myTerm = "alacritty"    # My terminal of choice
 myBrowser = "firefox"  # My browser of choice
-myFileManager = "dolphin" # Dolphin File Manager"
+myFileManager = "thunar" # Thunar File Manager"
 myEmail = "thunderbird" # Email Client
 myMusic = "spotify" # Music
 myAppLauncher = "rofi -show drun -show-icons" # App Launcher
@@ -110,14 +113,11 @@ for vt in range(1, 8):
 #--------------------------
 groups = []
 
-group_names = ["1", "2", "3", "4"]
-group_labels = ["", # Internet
-               "", # Folder
-               "", # Gamepad
-               ""] # Social
+group_names = ["1", "2", "3", "4","5","6","7","8"]
+group_labels = ["TERM", "WEB", "CODE", "SYS","FILES","CHAT","MUSIC","GAME"]
 
 # The default layout for each of the 5 workspacesm
-group_layouts = ["columns", "columns", "columns", "columns"]
+group_layouts = ["columns", "columns", "columns", "columns","columns","columns","columns","columns"]
 
 for i in range(len(group_names)):
     groups.append(
@@ -167,11 +167,11 @@ keys.extend([
 #--------------------------
 #  Colour & Themeing
 #--------------------------
-colors = colors.Nord
+colors = colors.CapMocha
 
 layout_theme = {"border_width": 4,
                 "margin": 5,
-                "border_focus": colors[7],
+                "border_focus": colors[10],
                 "border_normal": colors[0]
                 }
 
@@ -207,81 +207,141 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+#==========================================#
+#             Decorations                  #
+#==========================================#
+
+red_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[10],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+teal_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[14],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+yellow_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[12],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+green_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[13],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+peach_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[11],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+lavender_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[17],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+mauve_decor = {
+    "decorations": [
+        RectDecoration(
+            colour= colors[18],
+            radius=6,
+            filled=True,
+            padding_x=4,
+            padding_y=4,
+            group=True,
+        )
+    ]
+}
+
+
 screens = [
     Screen(
-        wallpaper = '/etc/nixos/users/fuzzles/assets/wallpapers/nord.jpeg',
-        wallpaper_mode = 'fill',
+        wallpaper='/etc/nixos/users/fuzzles/qtile/wallpaper/catppuccin/mocha/blue-landscape.png',
+        wallpaper_mode='fill',
 
         top=bar.Bar(
             [
                 widget.Prompt(
-                        font = "Ubuntu Mono",
-                        fontsize=14,
-                        foreground = colors[1]
-                ),
+                       font="Ubuntu Mono",
+                       fontsize=14,
+                       foreground=colors[1]
+                 ),
                  widget.TextBox(
-                         text="",
+                         text="󰀻",
                          mouse_callbacks={"Button1": lazy.spawn(myAppLauncher)},
-                         fontsize = 12,
-                         padding = 8,
+                         fontsize=20,
+                         padding=8,
                          ),
                  widget.TextBox(
-                         text = '|',
-                         font = "Ubuntu Mono",
-                         foreground = colors[9],
-                         padding = 2,
-                         fontsize = 14
+                         text='|',
+                         font="Ubuntu Mono",
+                         foreground=colors[9],
+                         padding=2,
+                         fontsize=14
                          ),
                 widget.GroupBox(
                         fontsize = 11,
                         margin_y = 5,
-                        margin_x = 14,
+                        margin_x = 10,
                         padding_y = 0,
                         padding_x = 2,
                         borderwidth = 3,
-                        active = colors[8],
+                        active = colors[10],
                         inactive = colors[9],
                         rounded = False,
                         highlight_color = colors[0],
                         highlight_method = "line",
-                        this_current_screen_border = colors[7],
-                        this_screen_border = colors [4],
-                        other_current_screen_border = colors[7],
-                        other_screen_border = colors[4],
+                        this_current_screen_border = colors[10],
                         ),
-                 #widget.TextBox(
-                        # text = '|',
-                        # font = "Ubuntu Mono",
-                        # foreground = colors[9],
-                        # padding = 2,
-                        # fontsize = 14
-                        # ),
-                 #widget.TextBox(
-                        # text="🦊",
-                        # mouse_callbacks={"Button1": lazy.spawn(myBrowser)},
-                        # fontsize = 12,
-                        # padding = 8,
-                        # foreground = colors[3],
-                        # ),
-                # widget.TextBox(
-                        # text="✉️",
-                        # mouse_callbacks={"Button1": lazy.spawn(myEmail)},
-                        # fontsize = 12,
-                        # padding = 8,
-                        # foreground = colors[3],
-                        # ),
-                 #widget.TextBox(
-                        # text="📁",
-                        # mouse_callbacks={"Button1": lazy.spawn(myFileManager)},
-                        # fontsize = 12,
-                        # padding = 8,
-                        # foreground = colors[3],
-                        # ),
-                # widget.TextBox(
-                        # text="🎧",
-                        # mouse_callbacks={"Button1": lazy.spawn(myMusic)},
-                        # padding=5
-                        # ),
                 widget.TextBox(
                         text = '|',
                         font = "Ubuntu Mono",
@@ -291,9 +351,9 @@ screens = [
                         ),
                 widget.CurrentLayout(
                         padding=5,
-                        scale=0.7,
-                        mode='both',
-                        icon_first=False,
+                        scale=0.5,
+                        mode='icon',
+                        #icon_first=False,
                         foreground = colors[1],
                             ),
                 widget.TextBox(
@@ -321,50 +381,70 @@ screens = [
                                             #},
                             #),
                 widget.Bluetooth(
-                        foreground = colors[3],
-                        padding = 8,
-                        default_text=' {connected_devices}',
-                        default_show_battery='True',
+                        **red_decor,
+                        foreground = colors[0],
+                        fontsize=14,
+                        padding = 18,
+                        default_text='' + '{connected_devices}',
+                        default_show_battery=True,
                         mouse_callbacks={
-                            'Button1': lambda: qtile.cmd_spawn('blueman-manager')},
+                            "Button1": lazy.spawn("blueman-manager")},
                         ),
                 widget.CPU(
-                        foreground = colors[4],
-                        padding = 8,
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                        format = '  Cpu: {load_percent}%',
+                        **green_decor,
+                        foreground=colors[0],
+                        fontsize=14,
+                        padding=8,
+                        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
+                        format='   ' + 'CPU: {load_percent}%',
                         ),
                 widget.Memory(
-                        foreground = colors[8],
+                        **teal_decor,
+                        foreground=colors[0],
+                        fontsize=14,
                         padding = 8,
                         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
                         format = '{MemUsed: .0f}{mm}',
-                        fmt = '🖥  Mem: {}',
+                        fmt = '   ' + 'Mem: {}',
                         ),
                 widget.DF(
+                        **yellow_decor,
                         update_interval = 60,
-                        foreground = colors[5],
-                        padding = 8,
+                        foreground=colors[0],
+                        fontsize=14,
+                        padding=8,
                         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('notify-disk')},
-                        partition = '/',
-                        format = '{uf:.0f}{m} free',
-                        fmt = '🖴  Disk: {}',
-                        visible_on_warn = False,
+                        partition='/',
+                        format='{uf:.0f}{m}',
+                        fmt='󰋊 ' + 'Disk: {}',
+                        visible_on_warn=False,
                         ),
                 widget.Volume(
-                        foreground=colors[7],
+                        **lavender_decor,
+                        foreground=colors[0],
+                        fontsize=14,
                         padding=8,
-                        fmt='🕫  Vol: {}',
+                        fmt='  ' + 'Vol: {}',
                         mouse_callbacks={"Button1": lazy.spawn("pavucontrol")},
                         ),
                 widget.Clock(
-                        foreground=colors[8],
+                        **peach_decor,
+                        foreground=colors[0],
+                        fontsize=14,
                         padding=8,
                         mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('notify-date')},
-                        format = "⧗ %a, %b %d - %H:%M",
+                        format = "  " + "%a, %b %d",
+                        ),
+                widget.Clock(
+                        **mauve_decor,
+                        foreground=colors[0],
+                        fontsize=14,
+                        padding=8,
+                        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('notify-date')},
+                        format="󰥔  " + "%I:%M %p"
                         ),
                 widget.TextBox(
-                        text = '|',
+                        text = "|",
                         font = "Ubuntu Mono",
                         foreground = colors[9],
                         padding = 2,
@@ -385,14 +465,16 @@ screens = [
                         ),
 
                 widget.QuickExit(
-                    default_text='  ',
-                    countdown_format ='[{}]',
+                    **red_decor,
+                    default_text='⏻',
+                    foreground=colors[0],
+                    fontsize = 14,
+                    countdown_format ='{}',
                     countdown_start = 5,
-                    padding = 2,
+                    padding = 20,
                     ),
-                widget.Spacer(length = 4),
             ],
-            size=30,
+            size=35,
         ),
     ),
 ]
@@ -444,11 +526,10 @@ wmname = "LG3D"
 #--------------------------
 #  Required Software
 #--------------------------
-# ttf-font-awesome
+# nerd fonts
 # rofi
 # pavucontrol
 # alsa-utils
-# picom
 # blueman (Bluetooth)
 # flameshot #Screenshot
 # copyq #Clipboard

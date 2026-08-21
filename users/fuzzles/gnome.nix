@@ -62,6 +62,13 @@
          color-scheme = "prefer-dark";
          gtk-theme = "Adwaita-dark";
          icon-theme = "Adwaita";
+         # Cursor
+         cursor-theme = "Adwaita";
+         cursor-size = 24;
+         # Fonts
+         font-name = "Adwaita Sans 11";
+         document-font-name = "Adwaita Sans 11";
+         monospace-font-name = "Adwaita Mono 11";
       };
       
       # Wallpaper      

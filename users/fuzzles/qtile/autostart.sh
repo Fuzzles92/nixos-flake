@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Polkit
+lxqt-policykit-agent &
+
 # Networking
 nm-applet &
 
@@ -9,6 +12,6 @@ copyq &
 # Screenshot tool
 flameshot &
 
-# Optional apps
+# Other Applications
 steam -silent &
 discord --start-minimized &

@@ -36,10 +36,10 @@
         ./modules/flatpak.nix          # Flatpak Module
         ./modules/gaming.nix           # Gaming Module
         ./modules/developer.nix        # Developer Module
-        #./desktop/gnome.nix           # GNOME Desktop
-        ./desktop/kde.nix              # KDE Desktop
+        ./desktop/gnome.nix           # GNOME Desktop
+        #./desktop/kde.nix              # KDE Desktop
         #./desktop/cosmic.nix          # COSMIC Desktop
-        ./desktop/qtile.nix            # Qtile Window Manager
+        #./desktop/qtile.nix            # Qtile Window Manager
         
         # Lanzaboote (Secure Boot) as a NixOS module
         lanzaboote.nixosModules.lanzaboote
