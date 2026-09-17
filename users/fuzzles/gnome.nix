@@ -30,6 +30,7 @@
     gnomeExtensions.caffeine
     gnomeExtensions.gsconnect
     gnomeExtensions.edit-desktop-files
+    gnomeExtensions.system-monitor
   ];
 
   #--------------------------
@@ -43,10 +44,11 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
           blur-my-shell.extensionUuid
-          caffeine.extensionUuid
           dash-to-dock.extensionUuid
+          caffeine.extensionUuid
+          gsconnect.extensionUuid     
           edit-desktop-files.extensionUuid
-          gsconnect.extensionUuid
+          system-monitor.extensionUuid
         ];        
       };
       

@@ -305,7 +305,7 @@ mauve_decor = {
 
 screens = [
     Screen(
-        wallpaper='/etc/nixos/users/fuzzles/qtile/wallpaper/catppuccin/mocha/blue-landscape.png',
+        wallpaper='/etc/nixos/users/fuzzles/assets/wallpapers/catppuccin/mocha/blue-landscape.png',
         wallpaper_mode='fill',
 
         top=bar.Bar(
