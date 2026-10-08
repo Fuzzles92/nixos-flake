@@ -75,14 +75,14 @@
       
       # Wallpaper      
       "org/gnome/desktop/background" = {
-          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/bazzite.png";
-          picture-uri-dark = "file://${config.home.homeDirectory}/Pictures/Wallpapers/bazzite.png";
+          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
+          picture-uri-dark = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
           picture-options = "zoom";
        };
        
        # Lock screen wallpaper
        "org/gnome/desktop/screensaver" = {
-          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/bazzite.png";
+          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
           picture-options = "zoom";
           };
     };
