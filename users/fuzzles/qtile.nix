@@ -12,7 +12,7 @@
       lxqt.lxqt-policykit       # LXQT Polkit Agent
       thunar                    # XFCE Thunar File Manager
       thunar-volman             # XFCE Thunar USB & Removeable Media
-      exo                       # XFCE helper apps + preferred applications (TerminalEmulator)
+      #exo                       # XFCE helper apps + preferred applications (TerminalEmulator)
       tumbler                   # XFCE Thunar Image/Video Thumbnail Support
       gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
       mousepad                  # XFCE Text Editor
