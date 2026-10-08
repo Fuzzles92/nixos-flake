@@ -47,7 +47,7 @@
        protonplus       # Manage Proton versions
        lutris           # Game launcher for Windows/emulators
        protonup-qt      # Install/manage Proton-GE
-       #heroic           # Epic/GOG/Amazon game launcher
+       heroic           # Epic/GOG/Amazon game launcher
        mangohud         # FPS/performance overlay
        gamescope        # Valve gaming compositor
        gamemode         # Performance boost daemon
