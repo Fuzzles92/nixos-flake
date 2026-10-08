@@ -9,8 +9,8 @@
   # Set Wallpaper & Lock Screen
   #--------------------------
   # Copy wallpaper into ~/Pictures
-  home.file."Pictures/Wallpapers/bazzite.png".source =
-    ./assets/wallpapers/bazzite.png;
+  home.file."Pictures/Wallpapers/blue-landscape.png".source =
+    ./assets/wallpapers/blue-landscape.png;
 
   #--------------------------
   # Packages (user-level)
