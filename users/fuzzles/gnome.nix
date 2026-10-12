@@ -80,7 +80,7 @@
           picture-options = "zoom";
        };
        
-       # Lock screen wallpaper
+       # Lock Screen Wallpaper
        "org/gnome/desktop/screensaver" = {
           picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
           picture-options = "zoom";

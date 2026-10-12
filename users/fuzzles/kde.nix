@@ -18,7 +18,7 @@
   #--------------------------
   home.packages = with pkgs; [
     # Applications
-	kdePackages.isoimagewriter			# KDE ISO Image Writer
+    kdePackages.isoimagewriter		# KDE ISO Image Writer
   ];
 
 }

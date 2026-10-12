@@ -36,7 +36,5 @@
   #--------------------------
   environment.systemPackages = with pkgs; [
     # Managed By Home Manager
-    #pika-backup        # Backup GUI Tool
-    #impression         # ISO Image Writer
     ];
 }
