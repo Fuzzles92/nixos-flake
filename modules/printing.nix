@@ -13,17 +13,17 @@
     browsing = true;
 
     drivers = with pkgs; [
-      gutenprint
+      #gutenprint
       hplip
-      splix
-      brlaser
+      #splix
+      #brlaser
 
-      hplipWithPlugin
-      cnijfilter2
-      postscript-lexmark
-      samsung-unified-linux-driver
-      brgenml1lpr
-      brgenml1cupswrapper
+      #hplipWithPlugin
+      #cnijfilter2
+      #postscript-lexmark
+      #samsung-unified-linux-driver
+      #brgenml1lpr
+      #brgenml1cupswrapper
     ];
   };
 
