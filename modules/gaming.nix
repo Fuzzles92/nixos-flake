@@ -14,7 +14,6 @@
     dedicatedServer.openFirewall = true;
   };
   
-  
   #--------------------------
   # Game Mode
   #--------------------------

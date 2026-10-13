@@ -11,9 +11,6 @@
   #--------------------------
   imports = [
     ./gnome.nix       # GNOME Home Manager
-    #./cosmic.nix      # COSMIC Home Manager
-    #./kde.nix          # KDE Home Manager
-    #./qtile.nix        # Qtile Home Manager
   ];
 
   #--------------------------

@@ -21,8 +21,8 @@
 
   # Declarative Flatpak apps
   services.flatpak.packages = [
-    "com.github.tchx84.Flatseal"     # Manage Flatpak Permissions
-    "io.github.flattool.Warehouse"   # Manage Installed Packages in Three Pane UI
+    #"com.github.tchx84.Flatseal"     # Manage Flatpak Permissions
+    #"io.github.flattool.Warehouse"   # Manage Installed Packages in Three Pane UI
   ];
 
   #--------------------------
