@@ -8,10 +8,7 @@
   #--------------------------
   # Enable Flatpak
   #--------------------------
-
   services.flatpak.enable = true;
-
-  # Add common remotes
   services.flatpak.remotes = [
     {
       name = "flathub";
@@ -19,7 +16,9 @@
     }
   ];
 
-  # Declarative Flatpak apps
+  #--------------------------
+  # Flatpak Applications
+  #--------------------------
   services.flatpak.packages = [
     #"com.github.tchx84.Flatseal"     # Manage Flatpak Permissions
     #"io.github.flattool.Warehouse"   # Manage Installed Packages in Three Pane UI

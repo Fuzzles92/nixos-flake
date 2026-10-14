@@ -5,15 +5,17 @@
 { pkgs, lib, ... }:
 
 {
-  # Install sbctl so you can manage keys
-  environment.systemPackages = [ pkgs.sbctl ];
+  # Secure Boot management and verification tools
+  environment.systemPackages = [
+    pkgs.sbctl
+  ];
 
-  # Lanzaboote replaces systemd-boot
+  # Lanzaboote replaces the standard systemd-boot module
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
-  # Enable Lanzaboote and point to your key bundle
+  # Secure Boot configuration
   boot.lanzaboote = {
     enable = true;
-    pkiBundle = "/var/lib/sbctl";
+    pkiBundle = "/var/lib/sbctl"; # Signing keys managed by sbctl
   };
 }

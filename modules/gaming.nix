@@ -1,8 +1,8 @@
 #================================#
-#        Gaming Module
+#          Gaming Module         #
 #================================#
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   #--------------------------
@@ -11,28 +11,18 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+
+    # Enable only if hosting Source dedicated servers
+    dedicatedServer.openFirewall = false;
   };
-  
+
   #--------------------------
   # Game Mode
   #--------------------------
   programs.gamemode.enable = true;
-  
-  #--------------------------
-  # Gamescope
-  #--------------------------
-  programs.gamescope.enable = true;
-  
-  #--------------------------
-  # Controller Support
-  #--------------------------
-  hardware.bluetooth.enable = true;
-  hardware.xone.enable = true;       # Xbox wireless adapter
-  boot.kernelModules = [ "joydev" ]; # Generic joystick support
 
   #--------------------------
-  # Vulkan support (32-bit needed for Steam/Proton)
+  # AMD Graphics
   #--------------------------
   hardware.graphics = {
     enable = true;
@@ -40,18 +30,28 @@
   };
 
   #--------------------------
+  # Controller Support
+  #--------------------------
+  hardware.bluetooth.enable = true;
+  hardware.xone.enable = true;
+  boot.kernelModules = [ "joydev" ];
+
+  #--------------------------
   # Gaming Utilities
   #--------------------------
   environment.systemPackages = with pkgs; [
-       protonplus       # Manage Proton versions
-       lutris           # Game launcher for Windows/emulators
-       protonup-qt      # Install/manage Proton-GE
-       heroic           # Epic/GOG/Amazon game launcher
-       mangohud         # FPS/performance overlay
-       gamescope        # Valve gaming compositor
-       gamemode         # Performance boost daemon
-       input-remapper   # Remap inputs per game
-       mangojuice       # MangoHud GUI/tweaks tool
-  ];
+    # Game Launchers
+    lutris
+    heroic
 
+    # Proton
+    protonplus
+
+    # Performance Monitoring and Configuration
+    mangohud
+    mangojuice
+
+    # Controller / Input Configuration
+    input-remapper
+  ];
 }

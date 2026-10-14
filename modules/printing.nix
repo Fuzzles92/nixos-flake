@@ -5,48 +5,37 @@
 { pkgs, ... }:
 
 {
-  #-------------------------
-  # CUPS Printing Support
-  #-------------------------
+  # Printer Support
   services.printing = {
     enable = true;
-    browsing = true;
 
     drivers = with pkgs; [
-      #gutenprint
-      hplip
-      #splix
-      #brlaser
-
-      #hplipWithPlugin
-      #cnijfilter2
-      #postscript-lexmark
-      #samsung-unified-linux-driver
-      #brgenml1lpr
-      #brgenml1cupswrapper
+      gutenprint       # Many printer brands and models
+      gutenprintBin    # Additional binary-only drivers
+      hplip            # HP printers
+      brlaser          # Many Brother laser printers
+      splix            # Some Samsung laser printers
+      epson-escpr      # Some Epson printers
+      epson-escpr2     # Newer Epson printers
     ];
   };
 
-  #-------------------------
-  # mDNS/Bonjour discovery
-  #-------------------------
+  # Driverless USB Printing
+  services.ipp-usb.enable = true;
+
+  # Network Printer Discovery
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
   };
 
-  #-------------------------
   # Scanner Support
-  #-------------------------
   hardware.sane = {
     enable = true;
+    extraBackends = [ pkgs.sane-airscan ]; # Many Network Scanners
   };
 
-  #-------------------------
-  # System Applications
-  #-------------------------
-  environment.systemPackages = with pkgs; [
-    simple-scan
-  ];
+  # Scanning application
+  environment.systemPackages = [ pkgs.simple-scan ];
 }
