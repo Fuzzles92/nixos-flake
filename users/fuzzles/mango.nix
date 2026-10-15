@@ -57,16 +57,16 @@
   #--------------------------
 
   # Rofi
-  programs.rofi = {
-          enable = true;
-          package = pkgs.rofi; #pkgs.rofi-wayland
-          theme = ./rofi/catppuccin/catppuccin-default.rasi;
+  #programs.rofi = {
+          #enable = true;
+          #package = pkgs.rofi; #pkgs.rofi-wayland
+          #theme = ./rofi/catppuccin/catppuccin-default.rasi;
 
-          extraConfig = {
-              show-icons = true;
-              modi = "drun,run,window";
-          };
-  };
+          #extraConfig = {
+           #   show-icons = true;
+          #    modi = "drun,run,window";
+          #};
+  #};
 
   xdg.configFile = {
   "rofi/catppuccin-mocha.rasi".source =
