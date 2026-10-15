@@ -9,21 +9,21 @@
   # Mango Packages
   #--------------------------
   home.packages = with pkgs; [
-      lxqt.lxqt-policykit       # LXQT Polkit Agent
-      thunar                    # XFCE Thunar File Manager
-      thunar-volman             # XFCE Thunar USB & Removeable Media
+      #lxqt.lxqt-policykit       # LXQT Polkit Agent
+      #thunar                    # XFCE Thunar File Manager
+      #thunar-volman             # XFCE Thunar USB & Removeable Media
       #exo                       # XFCE helper apps + preferred applications (TerminalEmulator)
-      tumbler                   # XFCE Thunar Image/Video Thumbnail Support
-      gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
-      mousepad                  # XFCE Text Editor
-      ristretto                 # XFCE Image Viewer
-      networkmanagerapplet      # Network Manager Applet
-      pavucontrol               # GUI PulseAudio
-      alsa-utils                # Utils for Advanced Linux Sound Architecture
-      pamixer                   # Pulseaudio Command Line Mixer
-      blueman                   # Bluetooth
-      flameshot                 # Screenshot Application
-      copyq                     # Clipboard
+      #tumbler                   # XFCE Thunar Image/Video Thumbnail Support
+      #gvfs                      # XFCE Thunar Trash Support,Network Mounts etc
+      #mousepad                  # XFCE Text Editor
+      #ristretto                 # XFCE Image Viewer
+      #networkmanagerapplet      # Network Manager Applet
+      #pavucontrol               # GUI PulseAudio
+      #alsa-utils                # Utils for Advanced Linux Sound Architecture
+      #pamixer                   # Pulseaudio Command Line Mixer
+      #blueman                   # Bluetooth
+      #flameshot                 # Screenshot Application
+      #copyq                     # Clipboard
   ];
 
   #--------------------------
