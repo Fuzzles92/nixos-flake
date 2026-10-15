@@ -37,7 +37,9 @@
         ./modules/gaming.nix           # Gaming Module
         ./modules/developer.nix        # Developer Module
         ./desktop/gnome.nix            # GNOME Desktop
-        ./desktop/qtile.nix            # Qtile Window Manager
+        #./desktop/kde.nix             # KDE Desktop
+        #./desktop/cosmic.nix          # COSMIC Desktop
+        #./desktop/qtile.nix           # Qtile Window Manager
         
         # Lanzaboote (Secure Boot) as a NixOS module
         lanzaboote.nixosModules.lanzaboote
