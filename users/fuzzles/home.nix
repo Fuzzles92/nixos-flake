@@ -12,7 +12,6 @@
   imports = [
     ./gnome.nix       # GNOME Home Manager
     ./qtile.nix       # Qtile Home Manager
-    ./mango.nix       # Mango Home Manager 
   ];
 
   #--------------------------

@@ -8,11 +8,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak?ref=v0.6.0";
     };
@@ -28,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, lanzaboote, nix-flatpak, home-manager, mangowm }:
+  outputs = { self, nixpkgs, lanzaboote, nix-flatpak, home-manager }:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -43,7 +38,6 @@
         ./modules/developer.nix        # Developer Module
         ./desktop/gnome.nix            # GNOME Desktop
         ./desktop/qtile.nix            # Qtile Window Manager
-        ./desktop/mango.nix            # Mango Window Manager
         
         # Lanzaboote (Secure Boot) as a NixOS module
         lanzaboote.nixosModules.lanzaboote
