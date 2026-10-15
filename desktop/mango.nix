@@ -15,7 +15,7 @@
   #--------------------------
   #  Mango Window Manager
   #--------------------------
-  programs.mango.enable = true;
+  #programs.mango.enable = true;
 
   #--------------------------
   #  DG Desktop Portals (Flatpak)
@@ -37,6 +37,7 @@
   #--------------------------
   environment.systemPackages = with pkgs; [
   # Managed By Home Manager
+  mangowc
   ];
 
   #--------------------------
