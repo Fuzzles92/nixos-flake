@@ -5,12 +5,6 @@
 { config, pkgs, ... }:
 
 { 
-  #--------------------------------#
-  #  Set Wallpaper & Lock Screen
-  #--------------------------------#
-  # Copy wallpaper into ~/Pictures
-  home.file."Pictures/Wallpapers/blue-landscape.png".source =
-    ../../users/fuzzles/assets/wallpapers/blue-landscape.png;
 
   #--------------------------------#
   #     Packages (user-level)
@@ -75,14 +69,14 @@
       
       # Wallpaper      
       "org/gnome/desktop/background" = {
-          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
-          picture-uri-dark = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
+          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/nix-penguin-2.png";
+          picture-uri-dark = "file://${config.home.homeDirectory}/Pictures/Wallpapers/nix-penguin-2.png";
           picture-options = "zoom";
        };
        
        # Lock Screen Wallpaper
        "org/gnome/desktop/screensaver" = {
-          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/blue-landscape.png";
+          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/nix-penguin-2.png";
           picture-options = "zoom";
           };
     };
