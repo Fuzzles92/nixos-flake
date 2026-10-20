@@ -1,3 +1,4 @@
+
 #--------------------------------#
 #      Fuzzles Home Manager
 #--------------------------------#
@@ -10,7 +11,7 @@
   #--------------------------------#
 
   imports = [
-    ../../home/desktops/gnome.nix  # GNOME Home Manager
+    ../../home/desktops/gnome.nix    # GNOME Home Manager
     # ../../home/desktops/cosmic.nix # COSMIC Home Manager
     # ../../home/desktops/kde.nix    # KDE Home Manager
     # ../../home/desktops/qtile.nix  # Qtile Home Manager
@@ -22,8 +23,6 @@
 
   home.username = "fuzzles";
   home.homeDirectory = "/home/fuzzles";
-
-  # Keep the original Home Manager state version.
   home.stateVersion = "25.05";
 
   #--------------------------------#
@@ -33,7 +32,19 @@
   programs.home-manager.enable = true;
 
   #--------------------------------#
-  #           User Packages
+  #          Bash Settings
+  #--------------------------------#
+
+  programs.bash = {
+    enable = true;
+
+    initExtra = ''
+      export PATH="$HOME/.local/bin:$PATH"
+    '';
+  };
+
+  #--------------------------------#
+  #          User Packages
   #--------------------------------#
 
   home.packages = with pkgs; [
@@ -44,11 +55,11 @@
     discord        # Discord Client
     spotify        # Music Streaming
     just           # Command Runner
-    fzf            # Fuzzy Finder
+    fzf            # Interactive Fuzzy Finder
   ];
 
   #--------------------------------#
-  #          Nix Just Wrapper
+  #         Nix Just Wrapper
   #--------------------------------#
 
   home.file.".local/bin/nixjust" = {
@@ -60,7 +71,7 @@
       JUSTFILE="/etc/nixos/Justfile"
 
       if [ ! -f "$JUSTFILE" ]; then
-        echo "Error: NixOS Justfile not found at $JUSTFILE"
+        echo "Error: Justfile not found at $JUSTFILE"
         exit 1
       fi
 
@@ -68,6 +79,7 @@
         exec ${pkgs.just}/bin/just \
           --justfile "$JUSTFILE" \
           --choose \
+          --chooser "${pkgs.fzf}/bin/fzf" \
           --color always
       else
         exec ${pkgs.just}/bin/just \

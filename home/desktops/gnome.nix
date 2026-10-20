@@ -69,16 +69,16 @@
       
       # Wallpaper      
       "org/gnome/desktop/background" = {
-          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/nix-penguin-2.png";
-          picture-uri-dark = "file://${config.home.homeDirectory}/Pictures/Wallpapers/nix-penguin-2.png";
+          picture-uri = "file://${../../users/fuzzles/assets/wallpapers/nix-penguin-2.png}";
+          picture-uri-dark = "file://${../../users/fuzzles/assets/wallpapers/nix-penguin-2.png}";
           picture-options = "zoom";
-       };
+          };
        
        # Lock Screen Wallpaper
        "org/gnome/desktop/screensaver" = {
-          picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/nix-penguin-2.png";
-          picture-options = "zoom";
-          };
+           picture-uri = "file://${../../users/fuzzles/assets/wallpapers/nix-penguin-2.png}";
+           picture-options = "zoom";
+           };
     };
   };
 }
