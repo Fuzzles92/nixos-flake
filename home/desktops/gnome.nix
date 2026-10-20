@@ -1,20 +1,20 @@
-#==========================================#
+#--------------------------------#
 #       GNOME Home Manager
-#==========================================#
+#--------------------------------#
 
 { config, pkgs, ... }:
 
 { 
-  #--------------------------
-  # Set Wallpaper & Lock Screen
-  #--------------------------
+  #--------------------------------#
+  #  Set Wallpaper & Lock Screen
+  #--------------------------------#
   # Copy wallpaper into ~/Pictures
   home.file."Pictures/Wallpapers/blue-landscape.png".source =
-    ./assets/wallpapers/blue-landscape.png;
+    ../../users/fuzzles/assets/wallpapers/blue-landscape.png;
 
-  #--------------------------
-  # Packages (user-level)
-  #--------------------------
+  #--------------------------------#
+  #     Packages (user-level)
+  #--------------------------------#
   home.packages = with pkgs; [
     # Applications
     gnome-tweaks           # GNOME Tweaks
@@ -33,9 +33,9 @@
     gnomeExtensions.system-monitor
   ];
 
-  #--------------------------
-  # dconf / GNOME settings
-  #--------------------------     
+    #--------------------------------#
+    #     dconf / GNOME settings
+    #--------------------------------#
     dconf = {
     enable = true;
     settings = {
@@ -88,4 +88,3 @@
     };
   };
 }
-

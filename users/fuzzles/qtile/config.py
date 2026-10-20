@@ -1,10 +1,10 @@
-#==========================================#
-#        Qtile Configuation
-#==========================================#
+#--------------------------------#
+#      Qtile Configuration
+#--------------------------------#
 
-#--------------------------
-#  Python imports
-#--------------------------
+#--------------------------------#
+#         Python imports
+#--------------------------------#
 import os
 import subprocess
 import sys
@@ -18,17 +18,17 @@ from libqtile import hook
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 
-#--------------------------
-#  Start Up Applications
-#--------------------------
+#--------------------------------#
+#     Start Up Applications
+#--------------------------------#
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call(home)
 
-#--------------------------
-#  Software Variables
-#--------------------------
+#--------------------------------#
+#       Software Variables
+#--------------------------------#
 mod = "mod4"           # Super/Windows Key
 myTerm = "alacritty"    # My terminal of choice
 myBrowser = "firefox"  # My browser of choice
@@ -37,9 +37,9 @@ myEmail = "thunderbird" # Email Client
 myMusic = "spotify" # Music
 myAppLauncher = "rofi -show drun -show-icons" # App Launcher
 
-#--------------------------
-#  Keys
-#--------------------------
+#--------------------------------#
+#              Keys
+#--------------------------------#
 keys = [
     # Essentials
     Key([mod], "return", lazy.spawn(myTerm), desc="Terminal"),
@@ -108,9 +108,9 @@ for vt in range(1, 8):
         )
     )
 
-#--------------------------
-#  Group Settings
-#--------------------------
+#--------------------------------#
+#         Group Settings
+#--------------------------------#
 groups = []
 
 group_names = ["1", "2", "3", "4","5","6","7","8"]
@@ -147,9 +147,9 @@ for i in groups:
         ]
     )
 
-#--------------------------
-#  Scratchpad Settings
-#--------------------------
+#--------------------------------#
+#      Scratchpad Settings
+#--------------------------------#
 groups.append(
      ScratchPad("scratchpad", [
          DropDown("term", myTerm, width=0.8, height=0.6, x=0.1, y=0.1, opacity=1),
@@ -164,9 +164,9 @@ keys.extend([
     Key([mod], "f3", lazy.group["scratchpad"].dropdown_toggle("music"), desc="Toggle music scratchpad"),
 ])
 
-#--------------------------
-#  Colour & Themeing
-#--------------------------
+#--------------------------------#
+#       Colour & Themeing
+#--------------------------------#
 colors = colors.CapMocha
 
 layout_theme = {"border_width": 4,
@@ -175,9 +175,9 @@ layout_theme = {"border_width": 4,
                 "border_normal": colors[0]
                 }
 
-#--------------------------
-#  Layouts
-#--------------------------
+#--------------------------------#
+#            Layouts
+#--------------------------------#
 layouts = [
     layout.Columns(**layout_theme),
     layout.MonadTall(**layout_theme),
@@ -196,9 +196,9 @@ layouts = [
 ]
 
 
-#==========================================#
-#             Qtile Bar & Widgets          #
-#==========================================#
+#--------------------------------#
+#     Qtile Bar & Widgets #
+#--------------------------------#
 widget_defaults = dict(
     font="Ubuntu Bold",
     fontsize=12,
@@ -207,9 +207,9 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-#==========================================#
-#             Decorations                  #
-#==========================================#
+#--------------------------------#
+#         Decorations #
+#--------------------------------#
 
 red_decor = {
     "decorations": [
@@ -479,9 +479,9 @@ screens = [
     ),
 ]
 
-#==========================================#
-#           Drag Floating Layouts          #
-#==========================================#
+#--------------------------------#
+#    Drag Floating Layouts #
+#--------------------------------#
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
@@ -523,9 +523,9 @@ wl_xcursor_size = 24
 
 wmname = "LG3D"
 
-#--------------------------
-#  Required Software
-#--------------------------
+#--------------------------------#
+#       Required Software
+#--------------------------------#
 # nerd fonts
 # rofi
 # pavucontrol

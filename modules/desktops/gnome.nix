@@ -1,6 +1,6 @@
-#==========================#
-#    GNOME Desktop
-#==========================#
+#--------------------------------#
+#         GNOME Desktop
+#--------------------------------#
 
 #gsettings reset-recursively org.gnome.desktop.interface
 #gsettings reset-recursively org.gnome.desktop.wm.preferences
@@ -8,29 +8,26 @@
 { config, pkgs, ... }:
 
 {
-  #--------------------------
-  #  Display Manager (GDM)
-  #--------------------------
+  #--------------------------------#
+  #     Display Manager (GDM)
+  #--------------------------------#
   # GDM is the GNOME Display Manager (login screen)
   services.displayManager.gdm.enable = true;
 
-  #--------------------------
-  #  GNOME Desktop
-  #--------------------------
   # Enables the full GNOME desktop environment
   services.desktopManager.gnome.enable = true;
 
-  #--------------------------
-  #  Excluded X11 Packages
-  #--------------------------
+  #--------------------------------#
+  #     Excluded X11 Packages
+  #--------------------------------#
   # Removes legacy or unnecessary X11 utilities
   services.xserver.excludePackages = with pkgs; [
     pkgs.xterm  # Basic X terminal emulator
   ];
 
-  #--------------------------
-  #  GNOME Excluded Packages
-  #--------------------------
+  #--------------------------------#
+  #    GNOME Excluded Packages
+  #--------------------------------#
   # Removes default GNOME apps to slim down the system
   environment.gnome.excludePackages = (with pkgs; [
     gnome-calendar       # GNOME Calendar
@@ -64,9 +61,9 @@
     #baobab                  # GNOME Disk Usage Analyzer
   ]);
 
-  #--------------------------
-  #  System Packages
-  #--------------------------
+  #--------------------------------#
+  #        System Packages
+  #--------------------------------#
   environment.systemPackages = with pkgs; [
   # Managed By Home Manager 
   ];

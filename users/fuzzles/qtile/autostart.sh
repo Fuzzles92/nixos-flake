@@ -1,5 +1,9 @@
 #!/bin/sh
 
+#--------------------------------#
+#        Qtile Autostart
+#--------------------------------#
+
 # Polkit
 lxqt-policykit-agent &
 

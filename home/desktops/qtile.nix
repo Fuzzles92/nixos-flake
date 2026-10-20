@@ -1,13 +1,13 @@
-#==========================================
+#--------------------------------#
 #       Qtile Home Manager
-#==========================================
+#--------------------------------#
 
 { config, pkgs, ... }:
 
 {
-  #--------------------------
-  # Qtile Packages
-  #--------------------------
+  #--------------------------------#
+  #         Qtile Packages
+  #--------------------------------#
   home.packages = with pkgs; [
       lxqt.lxqt-policykit       # LXQT Polkit Agent
       thunar                    # XFCE Thunar File Manager
@@ -26,9 +26,9 @@
       copyq                     # Clipboard
   ];
 
-  #--------------------------
-  # Default Applications
-  #--------------------------
+  #--------------------------------#
+  #      Default Applications
+  #--------------------------------#
   # Required for Thunar "Open Terminal Here" in non-XFCE desktops (Qtile)
   xdg.desktopEntries.alacritty = {
     name = "Alacritty";
@@ -52,15 +52,15 @@
     TerminalEmulator=alacritty
   '';
 
-  #--------------------------
-  # Programs
-  #--------------------------
+  #--------------------------------#
+  #            Programs
+  #--------------------------------#
 
   # Rofi
   programs.rofi = {
           enable = true;
           package = pkgs.rofi; #pkgs.rofi-wayland
-          theme = ./rofi/catppuccin/catppuccin-default.rasi;
+          theme = ../../users/fuzzles/rofi/catppuccin/catppuccin-default.rasi;
 
           extraConfig = {
               show-icons = true;
@@ -70,7 +70,7 @@
 
   xdg.configFile = {
   "rofi/catppuccin-mocha.rasi".source =
-    ./rofi/catppuccin/catppuccin-mocha.rasi;
+    ../../users/fuzzles/rofi/catppuccin/catppuccin-mocha.rasi;
   };
 
   # Alacritty
@@ -121,11 +121,11 @@
     };
    };
 
-  #--------------------------
-  # Qtile Configuration
-  #--------------------------
+   #--------------------------------#
+   #      Qtile Configuration
+   #--------------------------------#
    xdg.configFile."qtile" = {
-     source = ./qtile;
+     source = ../../users/fuzzles/qtile;
      recursive = true;
      force = true;
    };

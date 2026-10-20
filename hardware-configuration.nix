@@ -1,6 +1,6 @@
-#================================#
-#       Hardware Configuation
-#================================#
+#--------------------------------#
+#     Hardware Configuration
+#--------------------------------#
 
 { config, lib, pkgs, modulesPath, ... }:
 
@@ -14,9 +14,9 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   
-#================================#
-#           OS File Systems
-#================================#
+  #--------------------------------#
+  #        OS File Systems
+  #--------------------------------#
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/21717f3c-418b-4105-a687-8ada718dee95";
@@ -33,9 +33,9 @@
     [ { device = "/dev/disk/by-uuid/82fbfe57-66fd-48cb-8677-32a0fd8458c6"; }
     ];
     
-#================================#
-#     Additional File Systems
-#================================#
+  #--------------------------------#
+  #    Additional File Systems
+  #--------------------------------#
 # lsblk -f Find UUID of disk
 
   # Linux 1TB SSD

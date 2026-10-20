@@ -1,6 +1,6 @@
-#================================#
-#           My Flake
-#================================#
+#--------------------------------#
+#            My Flake
+#--------------------------------#
 
 {
   description = "Fuzzles92 Flake";
@@ -29,17 +29,22 @@
       system = "x86_64-linux";
 
       modules = [
-        ./configuration.nix            # System Configuration
-        ./hardware-configuration.nix   # Hardware Configuration
-        ./modules/lanzaboote.nix       # Lanzaboote Module (Secure Boot)
-        ./modules/printing.nix         # Printing & Scanning Module
-        ./modules/flatpak.nix          # Flatpak Module
-        ./modules/gaming.nix           # Gaming Module
-        ./modules/developer.nix        # Developer Module
-        ./desktop/gnome.nix            # GNOME Desktop
-        #./desktop/kde.nix             # KDE Desktop
-        #./desktop/cosmic.nix          # COSMIC Desktop
-        #./desktop/qtile.nix           # Qtile Window Manager
+        ./configuration.nix                      # System Configuration
+        ./modules/core/nix.nix
+        ./modules/core/locale.nix
+        ./modules/core/networking.nix
+        ./modules/core/boot.nix
+        ./hardware-configuration.nix             # Hardware Configuration
+        ./users/default.nix                      # All system user accounts
+        ./modules/core/lanzaboote.nix            # Lanzaboote Module (Secure Boot)
+        ./modules/printing.nix                   # Printing & Scanning Module
+        ./modules/flatpak.nix                    # Flatpak Module
+        ./modules/gaming.nix                     # Gaming Module
+        ./modules/development/default.nix        # Developer Module
+        ./modules/desktops/gnome.nix             # GNOME Desktop
+        #./modules/desktops/kde.nix              # KDE Desktop
+        #./modules/desktops/cosmic.nix           # COSMIC Desktop
+        #./modules/desktops/qtile.nix            # Qtile Window Manager
         
         # Lanzaboote (Secure Boot) as a NixOS module
         lanzaboote.nixosModules.lanzaboote

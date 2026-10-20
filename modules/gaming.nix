@@ -1,13 +1,17 @@
-#================================#
-#          Gaming Module         #
-#================================#
+#--------------------------------#
+#             Gaming
+#--------------------------------#
+
+#--------------------------------#
+#        Gaming Module #
+#--------------------------------#
 
 { pkgs, ... }:
 
 {
-  #--------------------------
-  # Steam
-  #--------------------------
+  #--------------------------------#
+  #             Steam
+  #--------------------------------#
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -16,29 +20,29 @@
     dedicatedServer.openFirewall = false;
   };
 
-  #--------------------------
-  # Game Mode
-  #--------------------------
+  #--------------------------------#
+  #           Game Mode
+  #--------------------------------#
   programs.gamemode.enable = true;
 
-  #--------------------------
-  # AMD Graphics
-  #--------------------------
+  #--------------------------------#
+  #          AMD Graphics
+  #--------------------------------#
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 
-  #--------------------------
-  # Controller Support
-  #--------------------------
+  #--------------------------------#
+  #       Controller Support
+  #--------------------------------#
   hardware.bluetooth.enable = true;
   hardware.xone.enable = true;
   boot.kernelModules = [ "joydev" ];
 
-  #--------------------------
-  # Gaming Utilities
-  #--------------------------
+  #--------------------------------#
+  #        Gaming Utilities
+  #--------------------------------#
   environment.systemPackages = with pkgs; [
     # Game Launchers
     lutris

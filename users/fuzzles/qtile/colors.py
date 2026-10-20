@@ -1,3 +1,7 @@
+#--------------------------------#
+#         Qtile Colours
+#--------------------------------#
+
 Nord = [
     ["#2E3440", "#2E3440"],  # color[0] - Nord0  (Polar Night - Dark Background)
     ["#D8DEE9", "#D8DEE9"],  # color[1] - Nord4  (Snow Storm - Light Foreground/Text)

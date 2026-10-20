@@ -1,13 +1,17 @@
-#================================#
-#         Developer Module
-#================================#
+#--------------------------------#
+#       Development Tools
+#--------------------------------#
 
-{ config, pkgs, fresh, ... }:
+#--------------------------------#
+#        Developer Module
+#--------------------------------#
+
+{ config, pkgs, ... }:
 
 {
-  #--------------------------
-  # System Packages
-  #--------------------------
+  #--------------------------------#
+  #        System Packages
+  #--------------------------------#
   environment.systemPackages = with pkgs; [
     vscodium             # Code Editor
     podman               # Container Engine
@@ -17,9 +21,9 @@
     gnome-boxes          # GNOME Virtual Machine 
   ];
 
-  #--------------------------
-  # Git
-  #--------------------------
+  #--------------------------------#
+  #              Git
+  #--------------------------------#
   programs.git = {
     enable = true;
     config = {
@@ -29,9 +33,9 @@
     };
   };
 
-  #--------------------------
-  # Virt-Manager
-  #--------------------------
+  #--------------------------------#
+  #          Virt-Manager
+  #--------------------------------#
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
   users.groups.libvirtd.members = [ "fuzzles" ];
@@ -49,17 +53,17 @@
     };
   };
 
-  #--------------------------
-  # Podman
-  #--------------------------
+  #--------------------------------#
+  #             Podman
+  #--------------------------------#
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  #--------------------------
-  # Teamviewer
-  #--------------------------
+  #--------------------------------#
+  #           Teamviewer
+  #--------------------------------#
   services.teamviewer.enable = true;
 }

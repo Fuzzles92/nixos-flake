@@ -1,20 +1,21 @@
-#==========================================#
-#       Qtile Config
-#==========================================#
+#--------------------------------#
+#      Qtile Window Manager
+#--------------------------------#
+
+#--------------------------------#
+#          Qtile Config
+#--------------------------------#
 
 { config, pkgs, ... }:
 
 {
 
-  #--------------------------
-  #  Display Manager (LightDM)
-  #--------------------------
+  #--------------------------------#
+  #   Display Manager (LightDM)
+  #--------------------------------#
   #services.xserver.displayManager.lightdm.enable = true;
 
 
-  #--------------------------
-  #  Qtile Window Manager
-  #--------------------------
   services.xserver.enable = true;
   services.xserver.windowManager.qtile = {
         enable = true;
@@ -24,9 +25,9 @@
             ];
   };
 
-  #--------------------------
+  #--------------------------------#
   #  DG Desktop Portals (Flatpak)
-  #--------------------------
+  #--------------------------------#
   xdg.portal.enable = true;
   xdg.portal.extraPortals = with pkgs; [
         xdg-desktop-portal-gtk   # GTK backend
@@ -34,26 +35,26 @@
         ];
   xdg.portal.config.common.default = "*"; # pick first available portal
   
-  #--------------------------
-  #  Polkit
-  #--------------------------
+  #--------------------------------#
+  #             Polkit
+  #--------------------------------#
   security.polkit.enable = true;
     
-  #--------------------------
-  #  System Packages
-  #--------------------------
+  #--------------------------------#
+  #        System Packages
+  #--------------------------------#
   environment.systemPackages = with pkgs; [
   # Managed By Home Manager
   ];
 
-  #--------------------------
-  #  Hardware
-  #--------------------------
+  #--------------------------------#
+  #            Hardware
+  #--------------------------------#
   hardware.bluetooth.enable = true;
 
-  #--------------------------
-  #  Fonts
-  #--------------------------
+  #--------------------------------#
+  #             Fonts
+  #--------------------------------#
   fonts.packages =
     (with pkgs; [
       font-awesome
