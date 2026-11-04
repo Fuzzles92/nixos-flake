@@ -56,6 +56,7 @@
     spotify        # Music Streaming
     just           # Command Runner
     fzf            # Interactive Fuzzy Finder
+    scribus        # Publishing Software
   ];
 
   #--------------------------------#

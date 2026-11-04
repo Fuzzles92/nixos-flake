@@ -25,6 +25,7 @@
     gnomeExtensions.gsconnect
     gnomeExtensions.edit-desktop-files
     gnomeExtensions.system-monitor
+    gnomeExtensions.tiling-shell
   ];
 
     #--------------------------------#
@@ -43,6 +44,7 @@
           gsconnect.extensionUuid     
           edit-desktop-files.extensionUuid
           system-monitor.extensionUuid
+          tiling-shell.extensionUuid
         ];        
       };
       
