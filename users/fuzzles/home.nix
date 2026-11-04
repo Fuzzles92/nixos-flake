@@ -5,6 +5,48 @@
 
 { config, pkgs, ... }:
 
+let
+
+  #--------------------------------#
+  #       NixOS Update Script
+  #--------------------------------#
+
+  nixosUpdate = pkgs.writeShellScriptBin "nixos-update" ''
+    echo ""
+    echo "================================"
+    echo "       NixOS System Update"
+    echo "================================"
+    echo ""
+
+    ${pkgs.just}/bin/just \
+      --justfile /etc/nixos/Justfile \
+      sys-update-boot
+
+    RESULT=$?
+
+    echo ""
+
+    if [ "$RESULT" -eq 0 ]; then
+      echo "================================"
+      echo "       Update Successful"
+      echo "================================"
+      echo ""
+      echo "Your new system is ready."
+      echo "Reboot to activate the changes."
+    else
+      echo "================================"
+      echo "         Update Failed"
+      echo "================================"
+      echo ""
+      echo "Please review the error messages above."
+    fi
+
+    echo ""
+    read -r -p "Press Enter to close..."
+    exit "$RESULT"
+  '';
+
+in
 {
   #--------------------------------#
   #            Imports
@@ -47,7 +89,7 @@
   #          User Packages
   #--------------------------------#
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     gimp           # Image Editor
     libreoffice    # Office Suite
     thunderbird    # Email Client
@@ -57,7 +99,28 @@
     just           # Command Runner
     fzf            # Interactive Fuzzy Finder
     scribus        # Publishing Software
+  ]) ++ [
+    nixosUpdate    # NixOS Update Launcher
   ];
+
+  #--------------------------------#
+  #       NixOS Update Icon
+  #--------------------------------#
+
+  xdg.desktopEntries.nixos-update = {
+    name = "Update NixOS";
+    genericName = "NixOS System Update";
+    comment = "Back up, update and rebuild NixOS";
+    exec = "${nixosUpdate}/bin/nixos-update";
+
+    # NixOS Snowflake Icon
+    icon = "${../../users/fuzzles/assets/icons/nixos-snowflake.svg}";
+
+    terminal = true;
+    categories = [
+      "System"
+    ];
+  };
 
   #--------------------------------#
   #         Nix Just Wrapper
@@ -91,3 +154,4 @@
     '';
   };
 }
+
