@@ -44,7 +44,7 @@
           gsconnect.extensionUuid     
           edit-desktop-files.extensionUuid
           system-monitor.extensionUuid
-          tiling-shell.extensionUuid
+          #tiling-shell.extensionUuid
         ];        
       };
       

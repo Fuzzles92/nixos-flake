@@ -44,7 +44,7 @@
         ./modules/desktops/gnome.nix             # GNOME Desktop
         #./modules/desktops/kde.nix              # KDE Desktop
         #./modules/desktops/cosmic.nix           # COSMIC Desktop
-        #./modules/desktops/qtile.nix            # Qtile Window Manager
+        ./modules/desktops/qtile.nix            # Qtile Window Manager
         
         # Lanzaboote (Secure Boot) as a NixOS module
         lanzaboote.nixosModules.lanzaboote
