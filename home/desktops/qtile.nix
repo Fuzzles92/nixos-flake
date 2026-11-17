@@ -125,9 +125,9 @@
    #--------------------------------#
    #      Qtile Configuration
    #--------------------------------#
-   xdg.configFile."qtile" = {
-     source = ../../users/fuzzles/qtile;
-     recursive = true;
-     force = true;
-   };
+   #xdg.configFile."qtile" = {
+     #source = ../../users/fuzzles/qtile;
+     #recursive = true;
+     #force = true;
+   #};
 }
