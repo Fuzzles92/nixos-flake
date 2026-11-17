@@ -56,7 +56,6 @@ in
     ../../home/desktops/gnome.nix    # GNOME Home Manager
     # ../../home/desktops/cosmic.nix # COSMIC Home Manager
     # ../../home/desktops/kde.nix    # KDE Home Manager
-    ../../home/desktops/qtile.nix  # Qtile Home Manager
   ];
 
   #--------------------------------#
