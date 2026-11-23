@@ -29,14 +29,10 @@
       system = "x86_64-linux";
 
       modules = [
-        ./configuration.nix                      # System Configuration
-        #./modules/core/nix.nix
-        ./modules/core/locale.nix
-        #./modules/core/networking.nix
-        ./modules/core/boot.nix
+        ./configuration.nix                      # System Configuration 
         ./hardware-configuration.nix             # Hardware Configuration
         ./users/default.nix                      # All system user accounts
-        ./modules/core/lanzaboote.nix            # Lanzaboote Module (Secure Boot)
+        ./modules/lanzaboote.nix                 # Lanzaboote Module (Secure Boot)
         ./modules/printing.nix                   # Printing & Scanning Module
         ./modules/flatpak.nix                    # Flatpak Module
         ./modules/gaming.nix                     # Gaming Module

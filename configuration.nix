@@ -21,6 +21,21 @@
     "nix-command"
     "flakes"
   ];
+  
+  #--------------------------------#
+  #        Bootloader GRUB
+  #--------------------------------#
+  #boot.loader.grub.enable = true;
+  #boot.loader.grub.device = "/dev/vda";
+  #boot.loader.grub.useOSProber = true;
+  #boot.supportedFilesystems = [ "ntfs" ];
+
+  #--------------------------------#
+  #       Bootloader Systemd
+  #--------------------------------#
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
    
   #--------------------------------#
   #             Kernel
@@ -32,6 +47,41 @@
   #    Plymonth (Splash Screen)
   #--------------------------------#
   boot.plymouth.enable = true;
+  
+  #--------------------------------#
+  #            Timezone
+  #--------------------------------#
+  time.timeZone = "Europe/London";
+  
+  #--------------------------------#
+  #  Language & Regional Formats
+  #--------------------------------#
+  i18n.defaultLocale = "en_GB.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
+
+  #--------------------------------#
+  #        Keyboard Layout
+  #--------------------------------#
+  services.xserver.xkb = {
+    layout = "gb";
+    variant = "";
+  };
+
+  #--------------------------------#
+  #        Console Keyboard
+  #--------------------------------#
+  console.keyMap = "uk";
   
   #--------------------------------#
   #   Hostname & Network Manager
