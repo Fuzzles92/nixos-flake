@@ -13,6 +13,14 @@
     [ 
      # Managed by Flakes (flake.nix)
     ];
+    
+  #--------------------------------#
+  #         Enable Flakes
+  #--------------------------------#
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
    
   #--------------------------------#
   #             Kernel
@@ -24,6 +32,12 @@
   #    Plymonth (Splash Screen)
   #--------------------------------#
   boot.plymouth.enable = true;
+  
+  #--------------------------------#
+  #   Hostname & Network Manager
+  #--------------------------------#
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
 
   #--------------------------------#
   #            Services
@@ -67,6 +81,25 @@
           fastfetch		# CLI Information Tool
           ntfs3g		# Open Source Driver for NTFS
   ];
+  
+  #--------------------------------#
+  #       Garbage Collection
+  #--------------------------------#
+  nix.gc = {
+  	automatic = true;
+  	dates = "weekly";
+  	options = "--delete-older-than 10d";
+  };
+
+  #--------------------------------#
+  #       Store Optimisation
+  #--------------------------------#
+  nix.optimise.automatic = true;
+
+  #--------------------------------#
+  #        Unfree Packages
+  #--------------------------------#
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

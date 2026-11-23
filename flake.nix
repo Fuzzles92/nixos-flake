@@ -30,9 +30,9 @@
 
       modules = [
         ./configuration.nix                      # System Configuration
-        ./modules/core/nix.nix
+        #./modules/core/nix.nix
         ./modules/core/locale.nix
-        ./modules/core/networking.nix
+        #./modules/core/networking.nix
         ./modules/core/boot.nix
         ./hardware-configuration.nix             # Hardware Configuration
         ./users/default.nix                      # All system user accounts

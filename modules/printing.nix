@@ -10,13 +10,13 @@
     enable = true;
 
     drivers = with pkgs; [
-      gutenprint       # Many printer brands and models
-      gutenprintBin    # Additional binary-only drivers
+      #gutenprint       # Many printer brands and models
+      #gutenprintBin    # Additional binary-only drivers
       hplip            # HP printers
-      brlaser          # Many Brother laser printers
-      splix            # Some Samsung laser printers
-      epson-escpr      # Some Epson printers
-      epson-escpr2     # Newer Epson printers
+      #brlaser          # Many Brother laser printers
+      #splix            # Some Samsung laser printers
+      #epson-escpr      # Some Epson printers
+      #epson-escpr2     # Newer Epson printers
     ];
   };
 
