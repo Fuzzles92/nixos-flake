@@ -2,10 +2,6 @@
 #       KDE Plasma Desktop
 #--------------------------------#
 
-#--------------------------------#
-#          KDE Desktop
-#--------------------------------#
-
 { config, pkgs, ... }:
 
 {
@@ -31,8 +27,8 @@
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
 	# Excludes
-  	  elisa  			    # Music player
-	  discover		        # Software Centre
+  	  elisa  		# Music player
+	  discover		# Software Centre
 	  khelpcenter           # KDE Help Centre
 	];
 
